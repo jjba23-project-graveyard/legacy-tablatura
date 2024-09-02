@@ -1,0 +1,35 @@
+$# Copyright © 2022 Josep Bigorra
+$#
+$# This file is part of Tablatura.
+$# Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+$#   either version 3 of the License, or (at your option) any later version.
+$#
+$# Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+$#   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+$#
+$# See the GNU General Public License for more details.
+$# You should have received a copy of the GNU General Public License along with Foobar.
+$# If not, see <https://www.gnu.org/licenses/>.
+
+<section>
+  <article .shadow-style-tw>
+    <div .card-grid-container>
+      $forall Tab pk artistNames songName _ _ _ image imageType _ _ _ createdAt updatedAt _ approved _ _ _ likes dislikes _ _ <- allTabs 
+        <div .card-grid-item .text-align-center>
+          <a href="@{(TabR (tabArtistsListToURL (tabSearchKeyArtists pk)) (tabSearchKeySong pk) (tabSearchKeyVersion pk) )}">
+            <div>
+              $maybe imgSrc <- image
+                $maybe imgType <- imageType
+                  <img .border-radius-tiny loading="lazy" src="data:#{imgType};base64, #{imgSrc}">
+                $nothing
+                  <img .border-radius-tiny loading="lazy" src="">
+            <h4>#{songName}
+            <h6 .muted>#{tabArtistsListToHumanReadable artistNames}
+          $if (not approved)
+            <p>PENDING APPROVAL OF ADMINS!
+          $#<small .muted .font-size-tiny >Updated at: #{show (epochToUTC updatedAt)}
+          $#<small .muted .font-size-tiny >Created at: #{show (epochToUTC createdAt)}
+
+  <footer>
+    <button #tabPaginationPreviousButton >< Previous
+    <button #tabPaginationNextButton >Next >

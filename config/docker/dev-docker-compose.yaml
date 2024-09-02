@@ -1,0 +1,29 @@
+# Copyright © 2022 Josep Bigorra
+#
+# This file is part of Tablatura.
+# Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+#   either version 3 of the License, or (at your option) any later version.
+#
+# Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+#   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#
+# See the GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License along with Foobar.
+# If not, see <https://www.gnu.org/licenses/>.
+
+version: "3.3"
+services:
+  mongo:
+    image: mongo:4.4.16
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=tablatura_user
+      - MONGO_INITDB_ROOT_PASSWORD=tablatura_password
+      - MONGO_INITDB_DATABASE=tablatura
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_volume:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+volumes:
+  mongo_volume:

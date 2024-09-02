@@ -1,0 +1,36 @@
+$# Copyright © 2022 Josep Bigorra
+$#
+$# This file is part of Tablatura.
+$# Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+$#   either version 3 of the License, or (at your option) any later version.
+$#
+$# Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+$#   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+$#
+$# See the GNU General Public License for more details.
+$# You should have received a copy of the GNU General Public License along with Foobar.
+$# If not, see <https://www.gnu.org/licenses/>.
+
+<section .hs-container-wheat-light>
+  <article .shadow-style-tw .text-align-center>
+    <h1 .font-weight-bold>Legal Statement
+    <div>
+      Tablatura, the one and only musical library CMS made with Haskell and Yesod, with MongoDB.
+      Copyright (C) 2022  Josep Jesus Bigorra Algaba (jjbigorra@gmail.com)
+
+      This program is free software: you can redistribute it and/or modify
+      it under the terms of the GNU General Public License as published by
+      the Free Software Foundation, either version 3 of the License, or
+      (at your option) any later version.
+
+      This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+      GNU General Public License for more details.
+
+      You should have received a copy of the GNU General Public License
+      along with this program.  If not, see
+      <a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/.
+
+      <a .hs-text .hs-link-burgundy .hs-bold href="https://git.sr.ht/~teutonicjoe/tablatura" rel="noreferrer noopener" target="_blank">
+        See the source code of Tablatura right here, on Sourcehut

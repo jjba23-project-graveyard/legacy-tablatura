@@ -1,0 +1,64 @@
+// Copyright © 2022 Josep Bigorra
+//
+// This file is part of Tablatura.
+// Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+//   either version 3 of the License, or (at your option) any later version.
+//
+// Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+//   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+//
+// See the GNU General Public License for more details.
+// You should have received a copy of the GNU General Public License along with Foobar.
+// If not, see <https://www.gnu.org/licenses/>.
+
+@import "defs";
+div .sourceCode {
+  // background-color: $richBlack;
+  // color: $floralWhite;
+  border-radius: 0.8rem;
+}
+pre,
+code,
+kbd,
+samp,
+var,
+output {
+  font-family: $monospace;
+  font-size: 0.8 * $em;
+}
+
+pre {
+  background: var(--pre-bg-color);
+  border: 0.1 * $em solid var(--pre-border-color);
+  border-radius: 0.4em;
+  line-height: 1.4 * $em;
+  overflow: auto;
+  padding-left: $spacing;
+
+  code {
+    background: none;
+    border: 0;
+    line-height: 1.65 * $em;
+    padding: 0;
+  }
+}
+
+code,
+kbd {
+  background: var(--code-kbd-bg-color);
+  border-radius: 0.2 * $spacing;
+  color: var(--code-in-pre-color);
+  display: inline-block;
+  line-height: $em;
+  padding: (0.2 * $em) (0.35 * $em) (0.15 * $em);
+}
+
+kbd {
+  background: var(--code-kbd-bg-color);
+  color: var(--fg-color);
+}
+
+mark {
+  background: var(--key-yellow);
+  padding: 0 (0.2 * $em);
+}

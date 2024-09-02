@@ -1,0 +1,65 @@
+// Copyright © 2022 Josep Bigorra
+//
+// This file is part of Tablatura.
+// Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+//   either version 3 of the License, or (at your option) any later version.
+//
+// Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+//   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+//
+// See the GNU General Public License for more details.
+// You should have received a copy of the GNU General Public License along with Foobar.
+// If not, see <https://www.gnu.org/licenses/>.
+
+@import 'defs';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  // color: $black;
+  margin-bottom: $em;
+}
+
+h1 {
+  font-size: 2 * $em;
+  font-weight: 500;
+  line-height: 2.4 * $em;
+  margin-top: 4 * $em;
+}
+
+h2 {
+  font-size: 1.6 * $em;
+  font-weight: 400;
+  line-height: 1.9 * $em;
+  margin-top: 3 * $em;
+}
+
+h3 {
+  font-size: 1.4 * $em;
+  line-height: 1.5 * $em;
+  margin-top: 2 * $em;
+}
+
+h4 {
+  font-size: 1.2 $em;
+  line-height: 1.3 * $em;
+  margin-top: $em;
+}
+
+h5 {
+  font-size: 1 * $em;
+  font-weight: bold;
+  line-height: 1.2 * $em;
+  text-transform: uppercase;
+}
+
+h6 {
+  // color: $gray;
+  font-size: .8 * $em;
+  font-weight: bold;
+  line-height: 1 * $em;
+  text-transform: uppercase;
+}

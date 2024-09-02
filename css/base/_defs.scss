@@ -1,0 +1,203 @@
+// Copyright © 2022 Josep Bigorra
+//
+// This file is part of Tablatura.
+// Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+//   either version 3 of the License, or (at your option) any later version.
+//
+// Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+//   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+//
+// See the GNU General Public License for more details.
+// You should have received a copy of the GNU General Public License along with Foobar.
+// If not, see <https://www.gnu.org/licenses/>.
+
+// colors
+// $black: #000;
+// $white: #fff;
+// $gray: #595959;
+// $blue: #275a90;
+// $red: #db423c;
+// $green: #2a6f3b;
+// $yellow: #ffc;
+// $ivory: #fffff0;
+// $choco0: #612d08;
+// $choco1: #7a553b;
+// $choco2: #ad7953;
+// $choco3: #784a10;
+// $realDarkChoco: #160a02;
+// $mayGreen: #6a994e;
+// $hunterGreen: #386641;
+// $openSUSEGreen: #73ba25;
+// $openSUSEGreenDarker: #6da741;
+// $lincolnGreen: #0b5d1e;
+// $lightGreen: #139a43;
+// $openSUSEBlue: #00a489;
+// $openSUSEBlueDark: #173f4f;
+// $oliveDrab: #322d1f;
+// $babyPowder: #fefefa;
+// $snow: #fffafa;
+// $monokaiBackground: #2e2e2e;
+// $monokaiComments: #797979;
+// $monokaiWhite: #d6d6d6;
+// $monokaiYellow: #e5b567;
+// $monokaiGreen: #b4d273;
+// $monokaiOrange: #e87d3e;
+// $monokaiPurple: #9e86c8;
+// $monokaiPink: #b05279;
+// $monokaiBlue: #6c99bb;
+// $peachyWhite:#f0e7e4;
+// $blackChocolate:#131919;
+// $carafe:#634f40;
+// $nude:#b49a87;
+// $burgundy: #AE002B;
+// $oranje: orange;
+
+// mocha
+$mochaRosewater: rgb(245, 224, 220);
+$mochaFlamingo: rgb(242, 205, 205);
+$mochaPink: rgb(245, 194, 231);
+$mochaMauve: rgb(203, 166, 247);
+$mochaRed: rgb(243, 139, 168);
+$mochaMaroon: rgb(235, 160, 172);
+$mochaPeach: rgb(250, 179, 135);
+$mochaYellow: rgb(249, 226, 175);
+$mochaGreen: rgb(166, 227, 161);
+$mochaTeal: rgb(148, 226, 213);
+$mochaSky: rgb(137, 220, 235);
+$mochaSapphire: rgb(116, 199, 236);
+$mochaBlue: rgb(137, 180, 250);
+$mochaLavender: rgb(180, 190, 254);
+$mochaText: rgb(205, 214, 244);
+$mochaSubtext1: rgb(186, 194, 222);
+$mochaSubtext0: rgb(166, 173, 200);
+$mochaOverlay2: rgb(147, 153, 178);
+$mochaOverlay1: rgb(127, 132, 156);
+$mochaOverlay0: rgb(108, 112, 134);
+$mochaSurface2: rgb(88, 91, 112);
+$mochaSurface1: rgb(69, 71, 90);
+$mochaSurface0: rgb(49, 50, 68);
+$mochaBase: rgb(30, 30, 46);
+$mochaMantle: rgb(24, 24, 37);
+$mochaCrust: rgb(17, 17, 27);
+
+// latte
+$latteRosewater: rgb(220, 138, 120);
+$latteFlamingo: rgb(221, 120, 120);
+$lattePink: rgb(234, 118, 203);
+$latteMauve: rgb(136, 57, 239);
+$latteRed: rgb(210, 15, 57);
+$latteMaroon: rgb(230, 69, 83);
+$lattePeach: rgb(254, 100, 11);
+$latteYellow: rgb(223, 142, 29);
+$latteGreen: rgb(64, 160, 43);
+$latteTeal: rgb(23, 146, 153);
+$latteSky: rgb(4, 165, 229);
+$latteSapphire: rgb(32, 159, 181);
+$latteBlue: rgb(30, 102, 245);
+$latteLavender: rgb(114, 135, 253);
+$latteText: rgb(76, 79, 105);
+$latteSubtext1: rgb(92, 95, 119);
+$latteSubtext0: rgb(108, 111, 133);
+$latteOverlay2: rgb(124, 127, 147);
+$latteOverlay1: rgb(140, 143, 161);
+$latteOverlay0: rgb(156, 160, 176);
+$latteSurface2: rgb(172, 176, 190);
+$latteSurface1: rgb(188, 192, 204);
+$latteSurface0: rgb(204, 208, 218);
+$latteBase: rgb(239, 241, 245);
+$latteMantle: rgb(230, 233, 239);
+$latteCrust: rgb(220, 224, 232);
+
+// light theme color pallet
+:root {
+  --bg-color: #{$latteCrust};
+  --fg-color: #{$latteText};
+  --link-color: #{$latteMauve};
+  --visited-link-color: #{lighten($latteMauve, 10)};
+  --border-color: #{$latteMantle};
+  --code-in-pre-color: #{$latteGreen};
+  --pre-border-color: #{$latteMantle};
+  --code-kbd-bg-color: #{$latteMantle};
+  --pre-bg-color: #{$latteBase};
+  --key-yellow: #{$latteYellow};
+  --key-blue: #{$latteSapphire};
+  --key-green: #{$latteGreen};
+  --key-red: #{$latteRed};
+  --key-orange: #{$lattePeach};
+  --fg-muted-color: #{$latteSubtext0};
+  --button-bg-color: #{$latteSurface0};
+  --button-fg-color: #{$latteSubtext1};
+  --music-display-fg-color: #{$latteText};
+  --music-display-bg-color: #{$latteBase};
+}
+// dark theme (default) color pallet
+body.dark-theme {
+  --bg-color: #{$mochaBase};
+  --fg-color: #{$mochaText};
+  --link-color: #{$mochaMauve};
+  --visited-link-color: #{darken($mochaMauve, 10)};
+  --border-color: #{$mochaMantle};
+  --code-in-pre-color: #{$mochaGreen};
+  --pre-border-color: #{$mochaMantle};
+  --code-kbd-bg-color: #{$mochaMantle};
+  --pre-bg-color: #{$mochaCrust};
+  --key-yellow: #{$mochaYellow};
+  --key-blue: #{$mochaSapphire};
+  --key-green: #{$mochaGreen};
+  --key-red: #{$mochaRed};
+  --key-orange: #{$mochaPeach};
+  --fg-muted-color: #{$mochaSubtext0};
+  --button-bg-color: #{$mochaSurface0};
+  --button-fg-color: #{$mochaSubtext1};
+  --music-display-fg-color: #{$mochaText};
+  --music-display-bg-color: #{$mochaCrust};
+}
+
+// sizes
+$em: calc(18 / 16) * 1rem;
+$spacing: 1.25em;
+
+// fonts
+$sans-serif: "Roboto", "Open Sans", "SF Pro Display", system-ui, "Helvetica Neue",
+  Helvetica, Arial, sans-serif;
+$sans-serif-title: "Roboto Slab","Open Sans", "SF Pro Display", system-ui, "Helvetica Neue",
+  Helvetica, Arial, sans-serif;
+$monospace: "Roboto Mono","Fira Mono", "SF Mono", Menlo, Monaco, Consolas, "Courier New",
+  monospace;
+
+%sans-serif {
+  font-family: $sans-serif;
+  font-size: $em;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.65 * $em;
+}
+
+.music-text-display {
+  background: var(--music-display-bg-color);
+  color: var(--music-display-fg-color);
+  font-family: $monospace;
+  font-size: smaller;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+
+.button-submit {
+  background: var(--key-green);
+  color: var(--bg-color);
+}
+
+.button-alert {
+  background: var(--key-red);
+  color: var(--bg-color);
+}
+
+.button-info {
+  color: var(--bg-color);
+  background: var(--key-blue);
+}
+
+.button-special {
+  color: var(--bg-color);
+  background: var(--key-orange);
+}

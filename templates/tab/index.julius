@@ -1,0 +1,102 @@
+// Copyright © 2022 Josep Bigorra
+//
+// This file is part of Tablatura.
+// Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+//   either version 3 of the License, or (at your option) any later version.
+//
+// Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+//   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+//
+// See the GNU General Public License for more details.
+// You should have received a copy of the GNU General Public License along with Foobar.
+// If not, see <https://www.gnu.org/licenses/>.
+
+const chordHighlighterRegex = /\b[A-G]{1}[mb1-9]?(sus)?[1-9]?[mb1-9]?(sus)?\b/gm;
+
+let pageIsAutoScrolling = false;
+
+function chordHighlighter() {
+  let tabRenderDiv = document.getElementById("tabRenderDiv");
+  let markup = tabRenderDiv.innerHTML;
+
+  let boldedMarkup = markup.replace(chordHighlighterRegex, function (a, b) {
+    return `<b>${a}</b>`;
+  });
+
+  tabRenderDiv.innerHTML = boldedMarkup;
+}
+
+function setupChordHighlighter() {
+  let toggleButton = document.getElementById("chordHighlightToggle");
+
+  toggleButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    chordHighlighter();
+  });
+}
+
+function stopAutoScrolling(buttonTextSpan, buttonIconSpan) {
+  pageIsAutoScrolling = false;
+  buttonTextSpan.innerText = "Auto-scroll";
+  //buttonIconSpan.setAttribute("name", "play");
+}
+
+async function startAutoScrolling(buttonTextSpan, buttonIconSpan) {
+  pageIsAutoScrolling = true;
+  buttonTextSpan.innerText = "Stop auto-scroll";
+  //buttonIconSpan.setAttribute("name", "pause");
+
+  let autoScrollLinesPerIterationSelect = document.getElementById("autoScrollLinesPerIteration");
+  let linesPerIterationValue = autoScrollLinesPerIterationSelect.options[autoScrollLinesPerIterationSelect.selectedIndex].value;
+
+  let autoScrollTimePerIterationSelect = document.getElementById("autoScrollTimePerIteration");
+  let timePerIterationValue = autoScrollTimePerIterationSelect.options[autoScrollTimePerIterationSelect.selectedIndex].value;
+
+  //let textAreaHeight = document.getElementById("tabRenderDiv").scrollHeight;
+  let divHeight = document.querySelector("#tabRenderDiv").offsetHeight;
+
+  let currentHeight = 0;
+
+  let toPix = (linesPerIterationValue * 20);
+
+  for (let i = 0; i <= divHeight + 200; i += toPix) {
+    if (pageIsAutoScrolling == false) {
+      break;
+    }
+
+    window.scrollBy({
+      top: toPix
+    });
+    currentHeight += toPix;
+    await new Promise(r => setTimeout(r, timePerIterationValue));
+  }
+}
+
+function setupAutoScroll() {
+  let toggleButton = document.getElementById("autoScrollToggle");
+  let buttonTextSpan = document.getElementById("autoScrollToggleText");
+  let buttonIconSpan = document.getElementById("autoScrollToggleIcon");
+  
+  document.addEventListener("wheel", (event) => {
+    if (pageIsAutoScrolling) {
+      stopAutoScrolling(buttonTextSpan, buttonIconSpan);
+      return;
+    }
+  });
+
+  toggleButton.addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    if (pageIsAutoScrolling) {
+      stopAutoScrolling(buttonTextSpan, buttonIconSpan);
+      return;
+    }
+
+    startAutoScrolling(buttonTextSpan, buttonIconSpan);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", (domContentLoadedEvent) => {
+  setupAutoScroll();
+  setupChordHighlighter();
+});

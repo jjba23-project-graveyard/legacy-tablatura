@@ -1,0 +1,103 @@
+$# Copyright © 2022 Josep Bigorra
+$#
+$# This file is part of Tablatura.
+$# Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+$#   either version 3 of the License, or (at your option) any later version.
+$#
+$# Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+$#   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+$#
+$# See the GNU General Public License for more details.
+$# You should have received a copy of the GNU General Public License along with Foobar.
+$# If not, see <https://www.gnu.org/licenses/>.
+
+<section>
+  <article .shadow-style-tw .text-align-justify>
+    <h1 .font-weight-bold>Legal Statement
+    <h5>Usage of this platform and legal binding of the users
+    <div>
+        <small>Last revised: Thursday, 17th of November 2022
+
+        <h3>Introduction
+        <ol>
+          <li>This disclaimer shall govern your use of our website.
+          <li>By using our website, you accept this disclaimer in full; accordingly, if you disagree with this disclaimer or any part of this disclaimer, you must not use our website.
+        
+        <h3>Credit
+        <p>All artistic, musical, or related contents, are ownership or their respective authors and not of Tablatura, or of its creator / administrators.
+
+        <h3>Copyright notice
+        <p>The administrators of the site, the creator, and community of users, do not own or control the copyright and other intellectual property rights in this website and the material on this website
+        <p>All the copyright and other intellectual property rights in our website and the material on our website are reserved to their authors.
+        
+        <h3>Permission to use website
+        You may:
+        <ol>
+          <li>view pages from our website in a web browser;
+          <li>download pages from our website for caching in a web browser; and
+          <li>print pages from our website[ for your own personal and non-commercial use][, providing that such printing is not systematic or excessive, and that you give credit to the respectful authors 
+              remain adhering to the other provisions of this disclaimer.
+          <li>inspect and study the source code that powers this website, use it, modify it, and distribute it, under the terms of the GNU v3 GPL License 
+        
+        <p>
+          You may only use our website for your own personal purposes and in order to spread the knowledge of music in good spirit.
+          Unless you own or control the relevant rights in the material, you must not:
+        <ol>
+             <li>republish material from our website (including republication on another website)
+             <li>sell, rent or sub-license material from our website
+             <li>exploit material from our website for a commercial purpose
+
+        <p>We reserve the right to suspend or restrict access to our website, to areas of our website and/or to functionality upon our website. 
+        <p>We may, for example, suspend access to the website [during server maintenance or when we update the website]. 
+        <p>You must not circumvent or bypass, or attempt to circumvent or bypass, any access restriction measures on the website.
+             
+        <h3>Misuse of website
+        <ol>
+           You must not:
+           <li>use our website in any way or take any action that causes, or may cause, damage to the website or impairment of the performance, availability, accessibility, integrity or security of the website;
+           <li>use our website in any way that is unlawful, illegal, fraudulent or harmful, or in connection with any unlawful, illegal, fraudulent or harmful purpose or activity;
+           <li>hack or otherwise tamper with our website;
+           <li>circumvent any authentication or security systems or processes on or relating to our website;
+           <li>use our website to copy, store, host, transmit, send, use, publish or distribute any material which consists of (or is linked to) any spyware, computer virus, Trojan horse, worm, keystroke logger, rootkit or other malicious computer software;
+           <li>impose an unreasonably large load on our website resources (including bandwidth, storage capacity and processing capacity);
+           <li>decrypt or decipher any communications sent by or to our website without our permission;
+           <li>conduct any systematic or automated data collection activities (including without limitation scraping, data mining, data extraction and data harvesting) on or in relation to our website without our express written consent;
+           <li>use data collected from our website for any direct marketing activity (including without limitation email marketing, SMS marketing, telemarketing and direct mailing);
+           <li>do anything that interferes with the normal use of our website.
+        <p>You must not use data collected from our website to contact individuals, companies or other persons or entities.
+        <p>You must ensure that all the information you supply to us through our website, or in relation to our website, is true, accurate, current, complete and non-misleading.
+           
+      <h3>Limited warranties
+      We do not warrant or represent:
+      <ol>
+          <li>the completeness or accuracy of the information published on our website;
+          <li>that the material on the website is up to date;
+          <li>that the website will operate without fault; or
+          <li>that the website or any service on the website will remain available.
+      
+      <p>We reserve the right to discontinue or alter any or all of our website services, and to stop publishing our website, at any time in our sole discretion without notice or explanation; and save to the extent expressly provided otherwise in this disclaimer, you will not be entitled to any compensation or other payment upon the discontinuance or alteration of any website services, or if we stop publishing the website.
+      <p>To the extent that our website and the information and services on our website are provided free of charge, we will not be liable for any loss or damage of any nature.
+      <p>We will not be liable to you in respect of any losses arising out of any event or events beyond our reasonable control.
+      <p>We will not be liable to you in respect of any business losses, including (without limitation) loss of or damage to profits, income, revenue, use, production, anticipated savings, business, contracts, commercial opportunities or goodwill.
+      <p>We will not be liable to you in respect of any loss or corruption of any data, database or software.
+      <p>We will not be liable to you in respect of any special, indirect or consequential loss or damage.
+       
+      <h3>Variation
+      <ol>
+        <li>We may revise this disclaimer from time to time.
+        <li>The revised disclaimer shall apply to the use of our website from the time of publication of the revised disclaimer on the website. 
+         
+      <h3>Severability
+      <ol>
+        <li>If a provision of this disclaimer is determined by any court or other competent authority to be unlawful and/or unenforceable, the other provisions will continue in effect.
+        <li>If any unlawful and/or unenforceable provision of this disclaimer would be lawful or enforceable if part of it were deleted, that part will be deemed to be deleted, and the rest of the provision will continue in effect. 
+         
+      <h3>Contact Details
+      <p>We are a world website, made in the Netherlands.
+      <p>You can contact the site administrators at
+        <a href="mailto:jjbigorra@gmail.com">jjbigorra@gmail.com
+
+
+<script>
+    ^{importJsFile}
+       

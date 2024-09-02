@@ -1,0 +1,82 @@
+$# Copyright © 2022 Josep Bigorra
+$#
+$# This file is part of Tablatura.
+$# Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+$#   either version 3 of the License, or (at your option) any later version.
+$#
+$# Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+$#   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+$#
+$# See the GNU General Public License for more details.
+$# You should have received a copy of the GNU General Public License along with Foobar.
+$# If not, see <https://www.gnu.org/licenses/>.
+
+<section>
+  <article .text-align-center .shadow-style-tw>
+    <h1 .font-weight-bold>Contribute
+    <h5>Help Tablatura become even more useful for more people!
+    <div .margin-top-normal>
+      <a href="@{TabNewR}">
+        <button>
+          <span .vertical-align-middle .display-inline-flex .align-items-center>
+            <svg .width-large data-darkreader-inline-stroke="" fill="none" stroke="currentColor"
+              style="--darkreader-inline-stroke: currentColor;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3">
+            <span>Add new song
+      <a href="@{GenreNewR}">
+        <button>
+          <span .vertical-align-middle .display-inline-flex .align-items-center>
+            <svg .width-large data-darkreader-inline-stroke="" fill="none" stroke="currentColor"
+              style="--darkreader-inline-stroke: currentColor;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14">
+            <span>Add new genre
+      <a href="@{ArtistNewR}">
+        <button>
+          <span .vertical-align-middle .display-inline-flex .align-items-center>
+            <svg .width-large fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z">
+            <span>Add new artist
+
+    $if isUserSuperUser
+      <div .margin-top-normal>
+        <h5>Super User actions
+        <div>
+          <a href="@{TabNonApprovedR}">
+            <button  .button-special>
+              <span .vertical-align-middle .display-inline-flex .align-items-center>
+                <svg .width-large data-darkreader-inline-stroke="" fill="none" stroke="currentColor" style="--darkreader-inline-stroke: currentColor;"
+                  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3">
+                <span>Approve songs
+          <a href="@{GenreNonApprovedR}">
+            <button .button-special>
+              <span .vertical-align-middle .display-inline-flex .align-items-center>
+                <svg .width-large data-darkreader-inline-stroke="" fill="none" stroke="currentColor"
+                  style="--darkreader-inline-stroke: currentColor;" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14">
+                <span>Approve genres
+          <a href="@{ArtistNonApprovedR}">
+            <button .button-special>
+              <span .vertical-align-middle .display-inline-flex .align-items-center>
+                <svg .width-large fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z">
+                <span>Approve artists
+
+    <hr>
+    <div .display-grid .margin-top-normal>
+      <p>There are several ways in which you can help
+        <em>&nbsp;tablatura.
+      <small .font-weight-bold>
+        <a href="@{UILabsR}">Another way to help is to contribute to the UI of the website, check the UI labs
+      <small .font-weight-bold>
+        <a href="https://git.sr.ht/~teutonicjoe/tablatura">
+          You can always feel free to contribute to the creation of the tablatura website and help us all improve it!
+      <small .font-weight-bold>    
+        <a href="https://www.fsf.org/">Helping, supporting and donating to the Free Software Foundation helps the world 💟
+
+<script>
+  ^{importJsFile}
+       

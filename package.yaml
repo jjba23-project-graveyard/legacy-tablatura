@@ -1,0 +1,117 @@
+# Copyright © 2022 Josep Bigorra
+#
+# This file is part of Tablatura.
+# Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+#   either version 3 of the License, or (at your option) any later version.
+#
+# Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+#   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#
+# See the GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License along with Foobar.
+# If not, see <https://www.gnu.org/licenses/>.
+
+name: tablatura
+version: "0.0.0"
+dependencies:
+  # Due to a bug in GHC 8.0.1, we block its usage
+  # See: https://ghc.haskell.org/trac/ghc/ticket/12130
+  - base >=4.8.2.0 && <4.9 || >=4.9.1.0 && <5
+  - yesod
+  - yesod-core
+  - yesod-auth
+  - yesod-static
+  - yesod-form
+  - classy-prelude
+  - classy-prelude-conduit
+  - classy-prelude-yesod
+  - bytestring
+  - text
+  - persistent
+  - persistent-mongoDB
+  - mongoDB
+  - persistent-template
+  - template-haskell
+  - shakespeare
+  - hjsmin
+  - monad-control
+  - wai-extra
+  - yaml
+  - http-client-tls
+  - http-conduit
+  - directory
+  - warp
+  - data-default
+  - aeson
+  - conduit
+  - monad-logger
+  - fast-logger
+  - wai-logger
+  - file-embed
+  - safe
+  - unordered-containers
+  - containers
+  - vector
+  - time
+  - case-insensitive
+  - wai
+  - foreign-store
+  - blaze-builder
+  - http-types
+  - slugify
+  - yesod-auth-oauth2
+  - base64-bytestring
+  - process
+  - uuid
+  - stm
+  # The library contains all of our application code. The executable
+# defined below is just a thin wrapper.
+library:
+  source-dirs: src
+  when:
+    - condition: (flag(dev)) || (flag(library-only))
+      then:
+        ghc-options:
+          - -Wall
+          - -fwarn-tabs
+          - -O0
+        cpp-options: -DDEVELOPMENT
+      else:
+        ghc-options:
+          - -Wall
+          - -fwarn-tabs
+          - -O2
+# Runnable executable for our application
+executables:
+  tablatura:
+    main: main.hs
+    source-dirs: app
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - tablatura
+    when:
+      - condition: flag(library-only)
+        buildable: false
+# Test suite
+tests:
+  tablatura-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options: -Wall
+    dependencies:
+      - tablatura
+      - hspec >=2.0.0
+      - yesod-test
+# Define flags used by "yesod devel" to make compilation faster
+flags:
+  library-only:
+    description: Build for use with "yesod devel"
+    manual: false
+    default: false
+  dev:
+    description: Turn on development settings, like auto-reload templates.
+    manual: false
+    default: false

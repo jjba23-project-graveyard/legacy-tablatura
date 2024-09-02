@@ -1,0 +1,132 @@
+$# Copyright © 2022 Josep Bigorra
+$#
+$# This file is part of Tablatura.
+$# Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+$#   either version 3 of the License, or (at your option) any later version.
+$#
+$# Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+$#   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+$#
+$# See the GNU General Public License for more details.
+$# You should have received a copy of the GNU General Public License along with Foobar.
+$# If not, see <https://www.gnu.org/licenses/>.
+
+<section .margin-bottom-normal>
+  <article .shadow-style-tw .display-grid>
+    <h1 .font-weight-bold>#{genreName genre}
+    <div .width-max .justify-content-space-around .display-inline-flex .vertical-align-middle .align-items-center .flex-wrap-wrap>
+      <div .display-grid>
+        $if (not (genreApproved genre))
+          <p .color-red>PENDING APPROVAL OF ADMINS!
+
+        $maybe desc <- genreDescription genre
+          <div>#{Textarea desc}
+        $nothing
+
+        $maybe lnk <- genreMoreInfoLink genre
+          <a .margin-bottom-normal .margin-top-normal rel="noopener noreferrer" target="_blank" href="#{lnk}">Click me for more information about #{genreName genre}!
+        $nothing
+
+        <dl>
+          <dt>Last edited on:
+          <dd>#{show (epochToUTC (genreLastEdited genre))}
+
+          $maybe viewCount <- genreViewCount genre
+             <dt>View count:
+             <dd>#{viewCount}
+          $nothing
+
+          <dt>
+          <dd>
+            <div .display-inline-flex .vertical-align-middle .flex-wrap-wrap .justify-content-center>
+              <form method=post action=@{(GenreLikeR (genreSlug genre))}
+                enctype="application/x-www-form-urlencoded">
+                <button .button-submit>
+                  <span .display-inline-flex .vertical-align-middle .align-items-center>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="width-large">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.423-.23H5.904M14.25 9h2.25M5.904 18.75c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 01-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 10.203 4.167 9.75 5 9.75h1.053c.472 0 .745.556.5.96a8.958 8.958 0 00-1.302 4.665c0 1.194.232 2.333.654 3.375z" >
+                    <span>like
+              <form method=post action=@{(GenreDislikeR (genreSlug genre))}
+                enctype="application/x-www-form-urlencoded">
+                <button .button-alert>
+                  <span .display-inline-flex .vertical-align-middle .align-items-center>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="width-large">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M7.5 15h2.25m8.024-9.75c.011.05.028.1.052.148.591 1.2.924 2.55.924 3.977a8.96 8.96 0 01-.999 4.125m.023-8.25c-.076-.365.183-.75.575-.75h.908c.889 0 1.713.518 1.972 1.368.339 1.11.521 2.287.521 3.507 0 1.553-.295 3.036-.831 4.398C20.613 14.547 19.833 15 19 15h-1.053c-.472 0-.745-.556-.5-.96a8.95 8.95 0 00.303-.54m.023-8.25H16.48a4.5 4.5 0 01-1.423-.23l-3.114-1.04a4.5 4.5 0 00-1.423-.23H6.504c-.618 0-1.217.247-1.605.729A11.95 11.95 0 002.25 12c0 .434.023.863.068 1.285C2.427 14.306 3.346 15 4.372 15h3.126c.618 0 .991.724.725 1.282A7.471 7.471 0 007.5 19.5a2.25 2.25 0 002.25 2.25.75.75 0 00.75-.75v-.633c0-.573.11-1.14.322-1.672.304-.76.93-1.33 1.653-1.715a9.04 9.04 0 002.86-2.4c.498-.634 1.226-1.08 2.032-1.08h.384" />
+                    <span>dislike
+
+          <dt>Likes | Dislikes :
+          $maybe likes <- genreLikes genre
+            $maybe dislikes <- genreDislikes genre
+              <dd>#{length likes} | #{length dislikes}
+            $nothing
+              <dd>#{length likes} | 0
+          $nothing
+            $maybe dislikes <- genreDislikes genre
+              <dd>0 | #{length dislikes}
+            $nothing
+              <dd>0 | 0
+
+
+      <div>
+        $maybe imgSrc <- (genreImage genre)
+          <div>
+            $maybe imgType <- (genreImageType genre)
+              <img .border-radius-tiny loading="lazy" src="data:#{imgType};base64, #{imgSrc}">
+            $nothing
+              <img .border-radius-tiny loading="lazy" src="">
+
+    $maybe _ <- userId
+      <hr .margin-top-normal>
+      <div>
+        <p .muted>management actions:
+        <div .display-inline-flex .vertical-align-middle .align-items-center .flex-wrap-wrap>
+          <a href="@{(GenreEditR (genreSlug genre) )}">
+            <button>
+              <span .display-inline-flex .vertical-align-middle .align-items-center>
+                <svg .width-large data-darkreader-inline-stroke="" fill="none" stroke="currentColor"
+                  style="--darkreader-inline-stroke: currentColor;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
+                <span>Edit genre
+
+          <form method=post action=@{(GenreDeleteR (genreSlug genre))} enctype="application/x-www-form-urlencoded" onsubmit="return confirm('ARE YOU REALLY SURE YOU WANT TO DELETE THE GENRE ?');">
+            <button .button-alert type="submit">
+              <span .display-inline-flex .vertical-align-middle .align-items-center>
+                <svg .width-large data-darkreader-inline-stroke="" fill="none" stroke="currentColor"
+                  style="--darkreader-inline-stroke: currentColor;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                <span>Delete genre
+
+          $if isUserSuperUser
+            $if (not(genreApproved genre))
+              <form method=post action=@{(GenreGrantApprovalR (genreSlug genre) )}
+                enctype="application/x-www-form-urlencoded" onsubmit="return confirm('ARE YOU REALLY SURE YOU WANT TO APPROVE THE GENRE ?');">
+                  <button .button-submit type="submit">
+                    <span .display-inline-flex .vertical-align-middle .align-items-center>
+                      <svg .width-large data-darkreader-inline-stroke="" fill="none" stroke="currentColor"
+                        style="--darkreader-inline-stroke: currentColor;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                    <span>Approve genre
+            $else
+              <form method=post action=@{(GenreRevokeApprovalR (genreSlug genre) )}
+                enctype="application/x-www-form-urlencoded" onsubmit="return confirm('ARE YOU REALLY SURE YOU WANT TO DISAPPROVE THE GENRE ?');">
+                  <button .button-alert type="submit">
+                    <span .display-inline-flex .vertical-align-middle .align-items-center>
+                      <svg .width-large data-darkreader-inline-stroke="" fill="none" stroke="currentColor"
+                        style="--darkreader-inline-stroke: currentColor;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                      <span>Disapprove genre
+
+    $nothing
+
+^{artistCardSectionList}
+
+^{tabSortParams}
+
+^{tabCardSectionList}
+
+<script>
+  ^{importJsFile}

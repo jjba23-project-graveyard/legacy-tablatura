@@ -1,0 +1,113 @@
+$# Copyright © 2022 Josep Bigorra
+$#
+$# This file is part of Tablatura.
+$# Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+$#   either version 3 of the License, or (at your option) any later version.
+$#
+$# Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+$#   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+$#
+$# See the GNU General Public License for more details.
+$# You should have received a copy of the GNU General Public License along with Foobar.
+$# If not, see <https://www.gnu.org/licenses/>.
+
+<!-- HEADER SECTION -->
+<header>
+  <nav>
+    <a href="/">
+      <h1 .font-size-very-large>
+        <strong .link-color>
+          tablatura
+    <small .muted>
+      <em>For all your music 
+  <nav>
+    <ul>
+        $forall MenuItem label route _ <- navbarLeftFilteredMenuItems
+           $#<span :Just route == mcurrentRoute:.active>
+           <li>
+              <a .title-font href="@{route}">#{label}
+        
+        $forall MenuItem label route _ <- navbarRightFilteredMenuItems
+           $#<span :Just route == mcurrentRoute:.active>
+           <li>
+              <a .title-font href="@{route}">#{label}
+  <nav>
+    <ul .display-grid>
+      <li>
+        <details .cursor-pointer .margin-bottom-normal>
+          <summary>
+            <small .font-weight-bold>
+              Click me to search for songs
+          <div .display-grid>
+            <small .muted>
+              <em>Note: Search functionality is still in development!
+            <div .display-inline-flex .vertical-align-middle .align-items-center .flex-wrap-wrap .justify-content-center> 
+              <input type=search
+                #searchInput
+                onkeydown="if (event.keyCode == 13){takeMeToSearch()}"
+                >
+              <button onclick="takeMeToSearch()">
+                <span .vertical-align-middle .align-items-center .display-inline-flex>
+                  <svg .width-large fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z">
+                <span>search
+      <li>
+        <small .font-weight-bold>
+          <span type="button" .nav-item .theme .link-color .cursor-pointer #theme-toggle>
+            &#127770;&nbsp;Turn on the lights
+
+$# Alert section
+<div> 
+    $# $if not $ Just HomeR == mcurrentRoute
+    $#     <span>
+    $#         $forall bc <- parents
+    $#             <span>
+    $#                 <a href="@{fst bc}">#{snd bc}
+
+    $#         <span .active>#{title}
+    $# $else 
+    $#     <span>&nbsp;
+
+    $maybe msg <- mmsg
+      <div .alert .alert-info #message>#{msg}
+
+            
+           
+$# Dynamic content
+$if (Just HomeR == mcurrentRoute)
+    ^{widget}
+$else
+    ^{widget}
+
+<!-- Footer -->
+<footer>
+  <div .display-grid .text-align-center>
+    <h6>
+      <em .muted>
+        All rights of the musical, artistic and graphical contents here displayed belong to the rightful authors
+    
+    <p .display-grid>
+      <small .font-weight-bold>
+        <a href=@{LegalStatementR}>Legal statement and usage of this website
+      <small .font-weight-bold>
+        <a href=@{PrivacyStatementR}>Privacy statement
+      <small .font-weight-bold>
+        <a href=@{LicenseStatementR}>Work under the GNU v3 GPL General License
+      <small .cursor-pointer>
+        <span .link-color .font-weight-bold onclick="window.scrollTo({top: 0, behavior: 'smooth'});" >&uarr;&nbsp;Back to the top of the page&nbsp;&uarr;
+
+    <p .display-grid>
+      <small .muted .font-weight-bold>
+        World website, made in The Netherlands 🇳🇱
+      <small .muted .font-weight-bold>
+        We are a non-profit education and leisure driven community that is kept alive via donations
+
+    <p .display-grid>
+      <small .muted .font-weight-bold>
+        #{appCopyright $ appSettings master}
+      <small .font-weight-bold>
+        <a .link-color href="https://git.sr.ht/~teutonicjoe/tablatura" target="__blank" rel="noreferrer noopener">
+          λ Proudly made with Haskell and Yesod
+      <small .font-weight-bold .muted>
+        Version: #{appGitTag $ appSettings master}
+      

@@ -1,0 +1,39 @@
+$# Copyright © 2022 Josep Bigorra
+$#
+$# This file is part of Tablatura.
+$# Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+$#   either version 3 of the License, or (at your option) any later version.
+$#
+$# Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+$#   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+$#
+$# See the GNU General Public License for more details.
+$# You should have received a copy of the GNU General Public License along with Foobar.
+$# If not, see <https://www.gnu.org/licenses/>.
+
+#{extra}
+<section>
+  <div .display-grid>
+    <div .margin-top-normal .display-grid>
+      <label .font-weight-bold>Link to additional information:
+      <p>A link to a Wikipedia page for example, with more information.
+      ^{fvInput genreLinkView}
+    <div .margin-top-normal .display-grid>
+      <label .font-weight-bold>Small description of the genre:
+      ^{fvInput genreDescriptionView}
+    <div .margin-top-normal .display-grid>
+      <label .font-weight-bold>Image of the genre:
+      ^{fvInput genreImageView}
+    <div .margin-top-normal .display-grid>
+      <label .font-weight-bold>Genre Tabs<br>
+      <details .margin-bottom-normal .cursor-pointer>
+        <summary>
+          <small .font-weight-bold>What is this ?
+        <p>
+          Please input the associated songs to this genre, one per line
+          You can find the identifiers in each tab's page, at the bottom
+          Format is artist/song/version | e.g. dio/rainbow-in-the-dark/1
+      ^{fvInput genreTabsView}
+    <div .margin-top-normal .display-grid>
+      <label .font-weight-bold>Genre artists:
+      ^{fvInput genreArtistsView}

@@ -1,0 +1,110 @@
+// Copyright © 2022 Josep Bigorra
+//
+// This file is part of Tablatura.
+// Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+//   either version 3 of the License, or (at your option) any later version.
+//
+// Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+//   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+//
+// See the GNU General Public License for more details.
+// You should have received a copy of the GNU General Public License along with Foobar.
+// If not, see <https://www.gnu.org/licenses/>.
+
+let defaultTabLine = "|--------------------------------------------------------------------------------------|"
+let tabStringsPerInstrument = {
+	guitar: {
+		sixString: ["e", "B", "G", "D", "A", "E"]
+	}
+}
+
+/* map of lighmodeclass : darkmodeclass */
+	let classesToTarget = {
+
+	};
+
+
+function getKeyByValue(object, value) {
+	let found =  Object.keys(object).find(key => object[key] === value);
+  return found;
+}
+
+function setupTextAreaAutoResize() {
+	document.querySelectorAll("textarea").forEach(element => {
+		function autoResize(el) {
+			el.style.height = (el.scrollHeight - 20) + 'px';
+		}
+		autoResize(element);
+		element.addEventListener('input', () => autoResize(element));
+	});
+}
+
+function setupEmptyCompassButton() {
+	document.getElementById("addEmptyCompass").addEventListener("click", (e) => {
+		e.preventDefault();
+		for (const key of tabStringsPerInstrument.guitar.sixString) {
+			document.getElementById("tabDisplay").value += key + defaultTabLine + '\n';
+		}
+	});
+}
+
+function modifyTextSize (elemId, oper) {
+    let elem = document.getElementById(elemId);
+
+    if (oper == '+'){
+      elem.style.fontSize = "larger";
+    }else if (oper == '-'){
+      elem.style.fontSize = "smaller";
+    }else if(oper == '0'){
+      elem.style.fontSize = "inherit";
+    }
+  }
+
+function takeMeToSearch(){
+  let searchBox = document.getElementById("searchInput");
+  //console.log(searchBox.value);
+  window.location = "/songs/search/" + encodeURIComponent(searchBox.value);
+}
+
+function setupTabPaginationButtons(){
+  let tabPaginationPreviousButton = document.getElementById("tabPaginationPreviousButton");
+  let tabPaginationNextButton = document.getElementById("tabPaginationNextButton");
+  const params = new URLSearchParams(window.location.search);
+
+  const initialStateFunc = () => {
+    tabPaginationPreviousButton.style.opacity = "0";
+    
+    tabPaginationNextButton.addEventListener("click", (e) => {
+		  e.preventDefault();
+      params.set("TabListPageNumber", 2);
+      console.log(params.toString());
+      window.location.search = params.toString();
+    });
+  }
+  
+  if (!params.has("TabListPageNumber")) {
+    initialStateFunc();
+    return;
+  }
+  
+  let currentPage = parseInt(params.get("TabListPageNumber"));
+
+  if (currentPage < 2) {
+    initialStateFunc();
+    return;
+  }
+
+  tabPaginationPreviousButton.addEventListener("click", (e) => {
+	  e.preventDefault();
+    params.set("TabListPageNumber", currentPage - 1);
+    console.log(params.toString());
+    window.location.search = params.toString();
+  });
+
+  tabPaginationNextButton.addEventListener("click", (e) => {
+	  e.preventDefault();
+    params.set("TabListPageNumber", currentPage + 1);
+    console.log(params.toString());
+    window.location.search = params.toString();
+  });
+}

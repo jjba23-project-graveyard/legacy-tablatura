@@ -1,0 +1,55 @@
+-- By default this file is used by `parseRoutesFile` in Foundation.hs
+-- Syntax for this file here: https://www.yesodweb.com/book/routing-and-handlers
+
+/static StaticR Static appStatic
+/auth   AuthR   Auth   getAuth
+
+/favicon.ico FaviconR GET
+/robots.txt RobotsR GET
+
+/ HomeR GET
+
+/profile ProfileR GET
+
+/contribute ContributeR GET
+
+/songs/new TabNewR GET POST
+/songs/search/#Text TabSearchR GET
+/songs/artists/#Text/songs/#Text/versions/#Int TabR GET
+/songs/artists/#Text/songs/#Text/versions/#Int/edit TabEditR GET POST
+/songs/artists/#Text/songs/#Text/versions/#Int/delete TabDeleteR POST
+/songs/artists/#Text/songs/#Text/versions/#Int/grant-approval TabGrantApprovalR POST
+/songs/artists/#Text/songs/#Text/versions/#Int/revoke-approval TabRevokeApprovalR POST
+/songs/non-approved TabNonApprovedR GET
+/songs/my-contribution TabMyContributionR GET
+/songs/artists/#Text/songs/#Text/versions/#Int/like TabLikeR POST
+/songs/artists/#Text/songs/#Text/versions/#Int/dislike TabDislikeR POST
+
+/genres/new GenreNewR GET POST
+/genres GenreListR GET
+/genres/names/#Text GenreR GET
+/genres/names/#Text/edit GenreEditR GET POST
+/genres/names/#Text/delete GenreDeleteR POST
+/genres/non-approved GenreNonApprovedR GET
+/genres/my-contribution GenreMyContributionR GET
+/genres/names/#Text/grant-approval GenreGrantApprovalR POST 
+/genres/names/#Text/revoke-approval GenreRevokeApprovalR POST
+/genres/names/#Text/like GenreLikeR POST
+/genres/names/#Text/dislike GenreDislikeR POST
+
+/artists/new ArtistNewR GET POST
+/artists ArtistListR GET
+/artists/names/#Text ArtistR GET
+/artists/names/#Text/edit ArtistEditR GET POST
+/artists/names/#Text/delete ArtistDeleteR POST
+/artists/non-approved ArtistNonApprovedR GET
+/artists/my-contribution ArtistMyContributionR GET
+/artists/names/#Text/grant-approval ArtistGrantApprovalR POST 
+/artists/names/#Text/revoke-approval ArtistRevokeApprovalR POST
+/artists/names/#Text/like ArtistLikeR POST
+/artists/names/#Text/dislike ArtistDislikeR POST
+
+/docs/privacy-statement PrivacyStatementR GET 
+/docs/legal-statement LegalStatementR GET
+/docs/license-statement LicenseStatementR GET
+/labs/ui UILabsR GET

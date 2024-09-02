@@ -1,0 +1,105 @@
+$newline never
+
+\<!--
+  Copyright © 2022 Josep Bigorra
+
+  This file is part of Tablatura.
+  Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+    either version 3 of the License, or (at your option) any later version.
+
+  Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+  See the GNU General Public License for more details.
+  You should have received a copy of the GNU General Public License along with Foobar.
+  If not, see <https://www.gnu.org/licenses/>. 
+-->
+\<!doctype html>
+\<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+\<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+\<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+\<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+  <head>
+    <meta charset="UTF-8">
+
+    <title>#{pageTitle pc}
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    ^{pageHead pc}
+
+    <link rel=stylesheet type=text/css href=@{StaticR css_tablatura_css}>
+
+
+    \<!--[if lt IE 9]>
+    $# \<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    \<![endif]-->
+    $# <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js">
+    $# <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.0.3/js.cookie.min.js">
+
+    $# <script>
+    $#   /* The `defaultCsrfMiddleware` Middleware added in Foundation.hs adds a CSRF token to the request cookies. */
+    $#   /* AJAX requests should add that token to a header to be validated by the server. */
+    $#   /* See the CSRF documentation in the Yesod.Core.Handler module of the yesod-core package for details. */
+    $#   var csrfHeaderName = "#{TE.decodeUtf8 $ CI.foldedCase defaultCsrfHeaderName}";
+
+    $#   var csrfCookieName = "#{TE.decodeUtf8 defaultCsrfCookieName}";
+    $#   var csrfToken = Cookies.get(csrfCookieName);
+
+
+    $#   if (csrfToken) {
+    $#   \  $.ajaxPrefilter(function( options, originalOptions, jqXHR ) {
+    $#   \      if (!options.crossDomain) {
+    $#   \          jqXHR.setRequestHeader(csrfHeaderName, csrfToken);
+    $#   \      }
+    $#   \  });
+    $#   }
+
+    $# <script>
+    $#   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');
+  <body>
+    ^{pageBody pc}
+
+    
+    
+    <script>
+       document.addEventListener("DOMContentLoaded", () => {
+         function themeMode() {
+           isDark = !isDark;
+           isDark ? themeToggle.innerHTML = "&#127770;&nbsp;Turn off the lights" : themeToggle.innerHTML = "&#127774;&nbsp;Turn on the lights";
+           pageTheme.classList.toggle("dark-theme");
+
+           let theme = "light";
+           if (pageTheme.classList.contains("dark-theme")) {
+             theme = "dark";
+           }
+           localStorage.setItem("theme", theme);
+         }
+
+         const themeToggle = document.querySelector("#theme-toggle");
+         const currentTheme = localStorage.getItem("theme");
+         const pageTheme = document.body;
+
+         let isDark = true;
+
+         if (currentTheme == "dark") {
+           pageTheme.classList.add("dark-theme");
+           themeToggle.innerHTML = "&#127774;&nbsp;Turn on the lights";
+         } else {
+           themeToggle.innerHTML = "&#127770;&nbsp;Turn off the lights";
+         }
+         themeToggle.addEventListener("click", themeMode);
+       });
+
+    $maybe analytics <- appAnalytics $ appSettings master
+      <script async src="https://www.googletagmanager.com/gtag/js?id=#{analytics}">
+      <script>
+        if(!window.location.href.match(/localhost/)){ 
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '#{analytics}');
+        }

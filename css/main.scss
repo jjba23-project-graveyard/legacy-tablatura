@@ -1,0 +1,203 @@
+// Copyright © 2022 Josep Bigorra
+//
+// This file is part of Tablatura.
+// Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+//   either version 3 of the License, or (at your option) any later version.
+//
+// Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+//   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+//
+// See the GNU General Public License for more details.
+// You should have received a copy of the GNU General Public License along with Foobar.
+// If not, see <https://www.gnu.org/licenses/>.
+
+@use "./base/main.scss";
+$burgundy: #ae002b;
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.text-align-center {
+  text-align: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.font-size-very-large {
+  font-size: xxx-large;
+}
+
+.line-height-large {
+  line-height: 2.5em;
+}
+
+.border-radius-large {
+  border-radius: 1em;
+}
+
+.display-grid {
+  display: grid;
+}
+
+.resource-details-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.display-inline-flex {
+  display: inline-flex;
+}
+
+.post-list-item-grid {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.list-style-circle {
+  list-style: circle;
+}
+
+// Color
+body {
+  color: var(--fg-color);
+  background: var(--bg-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+strong {
+  color: var(--fg-color);
+}
+
+.link-color {
+  color: var(--link-color);
+}
+
+a {
+  color: var(--link-color);
+}
+
+a:visited {
+  color: var(--visited-link-color);
+}
+
+article {
+  border: 1px solid var(--border-color);
+  border-radius: 1em;
+  background: var(--pre-bg-color);
+}
+
+.shadow-style-tw {
+  //box-shadow: var(--pre-bg-color) 0px 10px 15px -3px, var(--pre-bg-color) 0px 4px 6px -2px;
+  box-shadow: var(--pre-bg-color) 0px 5px 15px 0px;
+  //box-shadow: var(--pre-bg-color) 0px 1px 2px, var(--pre-bg-color) 0px 2px 4px, var(--pre-bg-color) 0px 4px 8px, var(--pre-bg-color) 0px 8px 16px, var(--pre-bg-color) 0px 16px 32px, var(--pre-bg-color) 0px 32px 64px;
+}
+
+.hs-home-list-image {
+  max-height: 120px;
+  max-width: 120px;
+  object-fit: cover;
+  object-position: bottom;
+}
+
+iframe {
+  border: none;
+}
+
+.card-grid-container {
+  justify-content: space-evenly;
+  display: flex;
+  flex-flow: wrap;
+}
+
+.border-radius-tiny {
+  border-radius: 0.4rem;
+}
+
+.sort-params-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap;
+}
+
+.width-normal {
+  width: 1rem;
+}
+
+.width-large {
+  width: 2rem;
+}
+
+.flex-wrap-wrap {
+  flex-wrap: wrap;
+}
+
+.color-palette-square {
+  width: 6em;
+  height: 6em;
+}
+
+.vertical-align-middle {
+  vertical-align: middle;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}
+
+.width-max {
+  width: 100%;
+}
+
+.justify-content-space-around {
+  justify-content: space-around;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.color-red {
+  color: $burgundy;
+}
+
+.width-three-quarters {
+  width: 75%;
+}
+
+@media only screen and (max-width: 800px) {
+  .width-max-mobile {
+    width: 100%;
+  }
+}
+
+.padding-medium {
+  padding: 0.7em;
+}
+
+.border-radius-medium {
+  border-radius: 1em;
+}
+
+.min-height-large {
+  min-height: 12em;
+}
+
+padding-small {
+  padding: 0.4em;
+}
+
+.text-align-justify {
+  text-align: justify;
+}

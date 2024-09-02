@@ -1,0 +1,179 @@
+// Copyright © 2022 Josep Bigorra
+//
+// This file is part of Tablatura.
+// Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+//   either version 3 of the License, or (at your option) any later version.
+//
+// Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+//   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+//
+// See the GNU General Public License for more details.
+// You should have received a copy of the GNU General Public License along with Foobar.
+// If not, see <https://www.gnu.org/licenses/>.
+
+* {
+  border: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  box-sizing: border-box;
+  margin: 0;
+  max-width: 100%;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+html,
+body {
+  width: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  @extend %sans-serif;
+  background: var(--bg-color);
+  color: var(--fg-color);
+  padding: 2 * $spacing;
+}
+
+p,
+ul,
+ol,
+dl,
+blockquote,
+hr,
+pre,
+table,
+fieldset,
+figure,
+address {
+  margin-bottom: 1.65 * $em;
+}
+
+section {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50 * $spacing;
+}
+
+aside {
+  float: right;
+  width: 285px;
+}
+
+header {
+  padding: 1 * $spacing;
+}
+
+article,
+footer {
+  padding: 1.4 * $spacing;
+}
+
+// article {
+//   // background: $white;
+//   border: 1px solid lighten($black, 85);
+// }
+
+nav {
+  text-align: center;
+
+  ul {
+    list-style: none;
+    margin-left: 0;
+    text-align: center;
+
+    li {
+      display: inline-block;
+      margin-left: 0.5 * $spacing;
+      margin-right: 0.5 * $spacing;
+      vertical-align: middle;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+ol,
+ul {
+  margin-left: 1.75 * $spacing;
+}
+
+li {
+  dl,
+  ol,
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+dl {
+  display: inline-block;
+}
+
+dt {
+  padding: 0 $em;
+}
+
+dd {
+  padding: 0 $em (0.25 * $em);
+
+  &:last-of-type {
+    border-bottom: (0.06 * $em) solid var(--border-color);
+  }
+
+  + dt {
+    border-top: (0.06 * $em) solid var(--border-color);
+    padding-top: 0.5 * $em;
+  }
+}
+
+blockquote {
+  border-left: (0.24 * $em) solid var(--border-color);
+  padding: (0.25 * $em) $em (0.25 * $em) (0.88 * $em);
+
+  footer {
+    color: var(--fg-color);
+    font-size: 0.75 * $em;
+    margin: 0;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+img {
+  height: auto;
+  margin: 0 auto;
+}
+
+figure {
+  img {
+    display: block;
+  }
+}
+
+.margin-tiny {
+ margin: 1.2 * $spacing;
+}
+
+.padding-tiny {
+  padding: 1.2 * $spacing;
+}
+
+.margin-top-normal {
+  margin-top: 2 * $spacing;
+}
+
+.margin-bottom-normal {
+  margin-bottom: 2 * $spacing;
+}

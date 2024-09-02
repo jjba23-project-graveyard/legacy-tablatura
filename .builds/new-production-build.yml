@@ -1,0 +1,55 @@
+image: "debian/testing"
+arch: "amd64"
+shell: false
+secrets:
+  - "f20a99cc-f68d-4391-822b-a774222928d3"
+  - "b90d57b3-9464-4639-853e-0f8e32d2842b"
+  - "49d7603d-e361-4d75-8b81-c7a7b7752b45"
+sources:
+  - "git@git.sr.ht:~teutonicjoe/tablatura"
+packages:
+  - "apt-transport-https"
+  - "ca-certificates"
+  - "gnupg"
+  - "lsb-release"
+  - "build-essential"
+  - "podman"
+  - "podman-compose"
+  - "podman-docker"
+  - "podman-toolbox"
+  - "crun"
+tasks:
+  - setup-gcp: |
+      echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+      curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+      sudo apt-get update && sudo apt-get install -y google-cloud-cli
+  - compile-nginx-docker-image: |
+      cd tablatura
+      sudo make build-nginx-docker-image
+  - compile-backend-docker-image: |
+      cd tablatura
+      sudo make build-backend-docker-image
+  - auth-gcp: |
+      REGISTRY_HOST=europe-west4-docker.pkg.dev
+      sudo gcloud auth activate-service-account artifact-registry-uploader@tablatura.iam.gserviceaccount.com \
+        --key-file=.tablatura-artifact-registry-uploader-key.json \
+        --project=tablatura
+      sudo gcloud auth configure-docker --quiet
+      sudo gcloud auth configure-docker ${REGISTRY_HOST} --quiet
+  - tag-and-push: |
+      cd tablatura
+      sudo make tag-nginx-image-with-current-sha
+      sudo make tag-backend-image-with-current-sha
+      sudo make push-nginx-image-with-current-sha
+      sudo make push-backend-image-with-current-sha
+      sudo make post-build-details
+  - trigger-deploy: |
+      sudo gcloud auth activate-service-account production-release-trigger-pub@tablatura.iam.gserviceaccount.com \
+        --key-file=.tablatura-pubsub-key.json \
+        --project=tablatura
+      cd tablatura
+      sudo gcloud pubsub topics publish tablatura-deploy-trigger-listener-topic \
+        --message="{\"values\": [{\"envKey\": \"TABLATURA_PROXY_VERSION\", \"envValueType\": \"COMMIT_SHA\", \"envValue\": \"$(git rev-parse HEAD)\"}, {\"envKey\": \"TABLATURA_BACKEND_VERSION\", \"envValueType\": \"COMMIT_SHA\", \"envValue\": \"$(git rev-parse HEAD)\"}, {\"envKey\": \"TABLATURA_GIT_TAG\", \"envValueType\": \"COMMIT_SHA\", \"envValue\": \"$(git rev-parse HEAD)\"}]}"
+    
+
+    

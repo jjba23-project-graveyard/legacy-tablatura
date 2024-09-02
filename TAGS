@@ -1,0 +1,511 @@
+
+./app/DevelMain.hs,160
+module DevelMain DevelMain51,52
+update update66,67
+shutdown shutdown103,104
+tidStoreNum tidStoreNum113,114
+modifyStoredIORef modifyStoredIORef116,117
+
+./app/devel.hs,17
+main main19,20
+
+./app/main.hs,17
+main main18,19
+
+./src/Application.hs,441
+module ApplicationApplication24,25
+makeFoundation makeFoundation94,95
+makeApplication makeApplication112,113
+makeLogWare makeLogWare126,127
+warpSettings warpSettings143,144
+getApplicationDev getApplicationDev161,162
+getAppSettings getAppSettings169,170
+develMain develMain173,174
+appMain appMain177,178
+getApplicationRepl getApplicationRepl199,200
+shutdownApp shutdownApp207,208
+handler handler218,219
+db db222,223
+
+./src/Application/CommandRunner.hs,107
+module Application.CommandRunner Application.CommandRunner15,16
+runSystemCommand runSystemCommand20,21
+
+./src/Application/TimeHandling.hs,159
+module Application.TimeHandling Application.TimeHandling17,18
+epochToUTC epochToUTC22,23
+epochToGregorian epochToGregorian25,26
+getEpoch getEpoch28,29
+
+./src/Application/Concurrency.hs,147
+module Application.Concurrency Application.Concurrency21,22
+type Work Work34,35
+type SendWork SendWork37,38
+spawnWorkers spawnWorkers40,41
+
+./src/Application/FormHandling.hs,166
+module Application.FormHandling Application.FormHandling19,20
+parseUploadIntoResizedBase64 parseUploadIntoResizedBase6429,30
+parseImageType parseImageType51,52
+
+./src/Domain/Artist.hs,1372
+module Domain.Artist Domain.Artist20,21
+data ArtistContributionFormValues ArtistContributionFormValues28,29
+data ArtistContributionFormValues = ArtistContributionFormValuesArtistContributionFormValues28,29
+  { artistInsertName artistInsertName29,30
+    artistInsertDescription artistInsertDescription30,31
+    artistInsertImage artistInsertImage31,32
+    artistInsertLink artistInsertLink32,33
+    artistInsertTabs artistInsertTabs33,34
+    artistInsertGenres artistInsertGenres34,35
+data ArtistEditFormValues ArtistEditFormValues37,38
+data ArtistEditFormValues = ArtistEditFormValuesArtistEditFormValues37,38
+  { artistEditDescription artistEditDescription38,39
+    artistEditImage artistEditImage39,40
+    artistEditLink artistEditLink40,41
+    artistEditTabs artistEditTabs41,42
+    artistEditGenres artistEditGenres42,43
+data ArtistSortByTypeArtistSortByType45,46
+  = ArtistAlphabeticalArtistAlphabetical46,47
+  | ArtistChronologicalArtistChronological47,48
+data GetArtistListParamGetArtistListParam50,51
+  = ArtistListOrientationArtistListOrientation51,52
+  | ArtistListSortByArtistListSortBy52,53
+type GetTabListParamMap GetTabListParamMap55,56
+parseArtistSortByTypeMaybe parseArtistSortByTypeMaybe57,58
+decideValueForSorting decideValueForSorting60,61
+getArtistOrderingFromParams getArtistOrderingFromParams67,68
+
+./src/Domain/Genre.hs,1326
+module Domain.Genre Domain.Genre20,21
+data GenreContributionFormValues GenreContributionFormValues28,29
+data GenreContributionFormValues = GenreContributionFormValuesGenreContributionFormValues28,29
+  { genreInsertName genreInsertName29,30
+    genreInsertDescription genreInsertDescription30,31
+    genreInsertImage genreInsertImage31,32
+    genreInsertLink genreInsertLink32,33
+    genreInsertTabs genreInsertTabs33,34
+    genreInsertArtists genreInsertArtists34,35
+data GenreEditFormValues GenreEditFormValues37,38
+data GenreEditFormValues = GenreEditFormValuesGenreEditFormValues37,38
+  { genreEditDescription genreEditDescription38,39
+    genreEditImage genreEditImage39,40
+    genreEditLink genreEditLink40,41
+    genreEditTabs genreEditTabs41,42
+    genreEditArtists genreEditArtists42,43
+data GenreSortByTypeGenreSortByType45,46
+  = GenreAlphabeticalGenreAlphabetical46,47
+  | GenreChronologicalGenreChronological47,48
+data GetGenreListParamGetGenreListParam50,51
+  = GenreListOrientationGenreListOrientation51,52
+  | GenreListSortByGenreListSortBy52,53
+type GetTabListParamMap GetTabListParamMap55,56
+parseGenreSortByTypeMaybe parseGenreSortByTypeMaybe57,58
+decideValueForSorting decideValueForSorting60,61
+getGenreOrderingFromParams getGenreOrderingFromParams67,68
+
+./src/Domain/Sorting.hs,208
+module Domain.Sorting Domain.Sorting20,21
+data OrientationTypeOrientationType26,27
+  = AscendingAscending27,28
+  | DescendingDescending28,29
+parseOrientationTypeMaybe parseOrientationTypeMaybe31,32
+
+./src/Domain/Tab.hs,2436
+module Domain.Tab Domain.Tab21,22
+data TabContributionFormValues TabContributionFormValues32,33
+data TabContributionFormValues = TabContributionFormValuesTabContributionFormValues32,33
+  { tabInsertArtistNames tabInsertArtistNames33,34
+    tabInsertSongName tabInsertSongName34,35
+    tabInsertVersion tabInsertVersion35,36
+    tabInsertContent tabInsertContent36,37
+    tabInsertLegend tabInsertLegend37,38
+    tabInsertMusicKey tabInsertMusicKey38,39
+    tabInsertImage tabInsertImage39,40
+    tabInsertTuning tabInsertTuning40,41
+    tabInsertGenre tabInsertGenre41,42
+    tabInsertYouTubeEmbedURL tabInsertYouTubeEmbedURL42,43
+    tabInsertSpotifyEmbedURL tabInsertSpotifyEmbedURL43,44
+    tabInsertCreationYear tabInsertCreationYear44,45
+    tabInsertAlbumName tabInsertAlbumName45,46
+    tabInsertAlbumLink tabInsertAlbumLink46,47
+data TabEditFormValues TabEditFormValues49,50
+data TabEditFormValues = TabEditFormValuesTabEditFormValues49,50
+  { tabEditContent tabEditContent50,51
+    tabEditLegend tabEditLegend51,52
+    tabEditKey tabEditKey52,53
+    tabEditImage tabEditImage53,54
+    tabEditTuning tabEditTuning54,55
+    tabEditGenre tabEditGenre55,56
+    tabEditYouTubeEmbedURL tabEditYouTubeEmbedURL56,57
+    tabEditSpotifyEmbedURL tabEditSpotifyEmbedURL57,58
+    tabEditCreationYear tabEditCreationYear58,59
+    tabEditAlbumName tabEditAlbumName59,60
+    tabEditAlbumLink tabEditAlbumLink60,61
+data TabSortByTypeTabSortByType63,64
+  = TabArtistAlphabeticalTabArtistAlphabetical64,65
+  | TabSongAlphabeticalTabSongAlphabetical65,66
+  | TabChronologicalTabChronological66,67
+data GetTabListParamGetTabListParam69,70
+  = TabListOrientationTabListOrientation70,71
+  | TabListSortByTabListSortBy71,72
+  | TabListPageNumberTabListPageNumber72,73
+type GetTabListParamMap GetTabListParamMap75,76
+parseTabPageNumberMaybe parseTabPageNumberMaybe77,78
+parseSortByTypeMaybe parseSortByTypeMaybe80,81
+decideValueForSorting decideValueForSorting83,84
+getTitleFromParams getTitleFromParams89,90
+getTabOrderingFromParams getTabOrderingFromParams121,122
+extractSearchKeyFromTab extractSearchKeyFromTab153,154
+tabArtistsListToURL tabArtistsListToURL160,161
+tabArtistsListToHumanReadable tabArtistsListToHumanReadable163,164
+tabArtistsURLToList tabArtistsURLToList166,167
+myTabsEncoder myTabsEncoder169,170
+myTabsDecoder myTabsDecoder182,183
+
+./src/Foundation.hs,2407
+module Foundation Foundation24,25
+data App App48,49
+data App = AppApp48,49
+  { appSettings appSettings49,50
+    appStatic appStatic51,52
+    appConnPool appConnPool53,54
+    appHttpManager appHttpManager54,55
+    appLogger appLogger55,56
+data MenuItem MenuItem58,59
+data MenuItem = MenuItemMenuItem58,59
+  { menuItemLabel menuItemLabel59,60
+    menuItemRoute menuItemRoute60,61
+    menuItemAccessCallback menuItemAccessCallback61,62
+data MenuTypesMenuTypes64,65
+  = NavbarLeft NavbarLeft65,66
+  | NavbarRight NavbarRight66,67
+type Form Form83,84
+instance Yesod Yesod App87,88
+  approot approot90,91
+  makeSessionBackend makeSessionBackend98,99
+  yesodMiddleware yesodMiddleware112,113
+  defaultLayout defaultLayout115,116
+  authRoute authRoute196,197
+  isAuthorized isAuthorized201,202
+  addStaticContent addStaticContent260,261
+  addStaticContent addStaticContent268,269
+  shouldLogIO shouldLogIO285,286
+  makeLogger makeLogger292,293
+instance YesodBreadcrumbs YesodBreadcrumbs App296,297
+  breadcrumb breadcrumb300,301
+instance YesodPersist YesodPersist App310,311
+  type YesodPersistBackend YesodPersistBackend311,312
+  runDB runDB312,313
+instance YesodAuth YesodAuth App320,321
+  type AuthId AuthId321,322
+  loginDest loginDest324,325
+  logoutDest logoutDest328,329
+  redirectToReferer redirectToReferer332,333
+  authenticate authenticate335,336
+  authPlugins authPlugins353,354
+  loginHandler loginHandler358,359
+myLoginHandler myLoginHandler360,361
+resourceNotFoundHandler resourceNotFoundHandler370,371
+emptyResultsHandler emptyResultsHandler376,377
+isAuthenticated isAuthenticated383,384
+isAuthSuperUser isAuthSuperUser390,391
+ifOwnerThenAuthorized ifOwnerThenAuthorized398,399
+ifOwnerThenAuthorizedMay ifOwnerThenAuthorizedMay402,403
+ifSuperUserOrOwnerThenAuthorized ifSuperUserOrOwnerThenAuthorized411,412
+fetchOwnerAuthStatus fetchOwnerAuthStatus418,419
+fetchOwnerAuthStatusMaybe fetchOwnerAuthStatusMaybe426,427
+isInSuperUserList isInSuperUserList437,438
+isAuthResourceOwner isAuthResourceOwner441,442
+instance YesodAuthPersist YesodAuthPersist App465,466
+instance RenderMessage RenderMessage App FormMessage469,470
+  renderMessage renderMessage470,471
+instance HasHttpManager HasHttpManager App476,477
+  getHttpManager getHttpManager477,478
+unsafeHandler unsafeHandler480,481
+
+./src/Handler/Artist.hs,715
+module Handler.Artist Handler.Artist21,22
+myArtistRepository myArtistRepository35,36
+renderArtistList renderArtistList38,39
+getArtistListR getArtistListR49,50
+getArtistMyContributionR getArtistMyContributionR70,71
+getArtistNonApprovedR getArtistNonApprovedR93,94
+getArtistR getArtistR114,115
+getArtistEditR getArtistEditR161,162
+postArtistDeleteR postArtistDeleteR178,179
+postArtistEditR postArtistEditR183,184
+getArtistNewR getArtistNewR201,202
+postArtistNewR postArtistNewR211,212
+postArtistGrantApprovalR postArtistGrantApprovalR229,230
+postArtistRevokeApprovalR postArtistRevokeApprovalR246,247
+postArtistLikeR postArtistLikeR257,258
+postArtistDislikeR postArtistDislikeR273,274
+
+./src/Handler/Common.hs,104
+module Handler.Common Handler.Common20,21
+getFaviconR getFaviconR28,29
+getRobotsR getRobotsR35,36
+
+./src/Handler/Contribute.hs,89
+module Handler.Contribute Handler.Contribute19,20
+getContributeR getContributeR24,25
+
+./src/Handler/Docs.hs,183
+module Handler.Docs Handler.Docs19,20
+getPrivacyStatementR getPrivacyStatementR24,25
+getLegalStatementR getLegalStatementR31,32
+getLicenseStatementR getLicenseStatementR38,39
+
+./src/Handler/Profile.hs,77
+module Handler.Profile Handler.Profile19,20
+getProfileR getProfileR24,25
+
+./src/Handler/Genre.hs,767
+module Handler.Genre Handler.Genre19,20
+myGenreRepository myGenreRepository33,34
+myTabRepository myTabRepository36,37
+myArtistRepository myArtistRepository39,40
+renderGenreList renderGenreList42,43
+getGenreListR getGenreListR52,53
+getGenreMyContributionR getGenreMyContributionR72,73
+getGenreNonApprovedR getGenreNonApprovedR95,96
+getGenreR getGenreR115,116
+getGenreEditR getGenreEditR160,161
+postGenreDeleteR postGenreDeleteR179,180
+postGenreEditR postGenreEditR184,185
+postGenreGrantApprovalR postGenreGrantApprovalR210,211
+postGenreRevokeApprovalR postGenreRevokeApprovalR222,223
+postGenreLikeR postGenreLikeR232,233
+postGenreDislikeR postGenreDislikeR244,245
+getGenreNewR getGenreNewR255,256
+postGenreNewR postGenreNewR265,266
+
+./src/Handler/Tab.hs,694
+module Handler.Tab Handler.Tab20,21
+myGenreRepository myGenreRepository33,34
+myTabRepository myTabRepository36,37
+getTabR getTabR39,40
+getTabEditR getTabEditR69,70
+postTabDeleteR postTabDeleteR92,93
+postTabEditR postTabEditR99,100
+postTabRevokeApprovalR postTabRevokeApprovalR124,125
+postTabGrantApprovalR postTabGrantApprovalR137,138
+postTabLikeR postTabLikeR151,152
+postTabDislikeR postTabDislikeR165,166
+getTabNewR getTabNewR179,180
+postTabNewR postTabNewR189,190
+getHomeR getHomeR218,219
+renderTabList renderTabList244,245
+getTabNonApprovedR getTabNonApprovedR256,257
+getTabMyContributionR getTabMyContributionR282,283
+getTabSearchR getTabSearchR311,312
+
+./src/Handler/Labs.hs,69
+module Handler.Labs Handler.Labs19,20
+getUILabsR getUILabsR24,25
+
+./src/Import.hs,27
+module ImportImport15,16
+
+./src/Import/NoFoundation.hs,130
+module Import.NoFoundationImport.NoFoundation20,21
+type DB DB44,45
+applyIfNonEmptyOrNotFound applyIfNonEmptyOrNotFound49,50
+
+./src/Import/Utils.hs,177
+module Import.Utils Import.Utils15,16
+addIfNotExistsItem addIfNotExistsItem17,18
+  | item `Prelude.elem`Prelude.elem19,20
+tempWebDataDirectory tempWebDataDirectory22,23
+
+./src/Model.hs,41
+module Model Model29,30
+let let41,42
+
+./src/Repositories/MongoArtistRepository.hs,134
+module Repositories.MongoArtistRepositoryRepositories.MongoArtistRepository21,22
+mongoArtistRepository mongoArtistRepository37,38
+
+./src/Repositories/Repositories.hs,3156
+module Repositories.Repositories Repositories.Repositories21,22
+data RepositoryErrorRepositoryError32,33
+  = RecordWithWantedSoftIdAlreadyExistsError RecordWithWantedSoftIdAlreadyExistsError33,34
+  | RecordToUpdateDoesNotExistError RecordToUpdateDoesNotExistError34,35
+  | RecordToDeleteDoesNotExistError RecordToDeleteDoesNotExistError35,36
+data ArtistRepository ArtistRepository38,39
+data ArtistRepository = ArtistRepositoryArtistRepository38,39
+  { deleteArtist deleteArtist39,40
+    getArtistList getArtistList40,41
+    getArtistListBySlug getArtistListBySlug41,42
+    getMyContributionArtistList getMyContributionArtistList42,43
+    getNonApprovedArtistList getNonApprovedArtistList43,44
+    grantApprovalArtist grantApprovalArtist44,45
+    insertArtist insertArtist45,46
+    maybeGetArtist maybeGetArtist46,47
+    maybeGetCreatorOfArtist maybeGetCreatorOfArtist47,48
+    revokeApprovalArtist revokeApprovalArtist48,49
+    updateArtist updateArtist49,50
+    updateTabsOfArtist updateTabsOfArtist50,51
+    maybeGetArtistObjectIdFromSoftId maybeGetArtistObjectIdFromSoftId51,52
+    increaseViewCounterArtist increaseViewCounterArtist52,53
+    likeArtist likeArtist53,54
+    dislikeArtist dislikeArtist54,55
+data GenreRepository GenreRepository57,58
+data GenreRepository = GenreRepositoryGenreRepository57,58
+  { deleteGenre deleteGenre58,59
+    getGenreFromTextarea getGenreFromTextarea59,60
+    getGenreListBySlug getGenreListBySlug60,61
+    getGenreList getGenreList61,62
+    getMyContributionGenreList getMyContributionGenreList62,63
+    getNonApprovedGenreList getNonApprovedGenreList63,64
+    grantApprovalGenre grantApprovalGenre64,65
+    insertGenre insertGenre65,66
+    maybeGetGenreObjectIdFromSoftId maybeGetGenreObjectIdFromSoftId66,67
+    maybeGetCreatorOfGenre maybeGetCreatorOfGenre67,68
+    maybeGetGenre maybeGetGenre68,69
+    revokeApprovalGenre revokeApprovalGenre69,70
+    updateGenre updateGenre70,71
+    updateTabsOfGenre updateTabsOfGenre71,72
+    increaseViewCounterGenre increaseViewCounterGenre72,73
+    likeGenre likeGenre73,74
+    dislikeGenre dislikeGenre74,75
+data TabRepository TabRepository77,78
+data TabRepository = TabRepositoryTabRepository77,78
+  { deleteTab deleteTab78,79
+    getNonApprovedTabList getNonApprovedTabList79,80
+    getPagingFromParams getPagingFromParams80,81
+    maybeGetTab maybeGetTab81,82
+    maybeGetTabKeyFromEntity maybeGetTabKeyFromEntity82,83
+    getTabList getTabList83,84
+    getTabListBySearchKeys getTabListBySearchKeys84,85
+    grantApprovalTab grantApprovalTab85,86
+    insertTab insertTab86,87
+    maybeGetCreatorOfTab maybeGetCreatorOfTab87,88
+    getMyContributionTabList getMyContributionTabList88,89
+    maybeGetTabObjectIdFromSoftId maybeGetTabObjectIdFromSoftId89,90
+    revokeApprovalTab revokeApprovalTab90,91
+    searchForTab searchForTab91,92
+    updateGenresOfTabAssociation updateGenresOfTabAssociation92,93
+    updateTab updateTab93,94
+    increaseViewCounterTab increaseViewCounterTab94,95
+    likeTab likeTab95,96
+    dislikeTab dislikeTab96,97
+
+./src/Repositories/MongoGenreRepository.hs,130
+module Repositories.MongoGenreRepositoryRepositories.MongoGenreRepository21,22
+mongoGenreRepository mongoGenreRepository38,39
+
+./src/Repositories/MongoTabRepository.hs,123
+module Repositories.MongoTabRepository Repositories.MongoTabRepository21,22
+mongoTabRepository mongoTabRepository34,35
+
+./src/Settings.hs,1371
+module Settings Settings25,26
+import import29,30
+data AppSettings AppSettings44,45
+data AppSettings = AppSettingsAppSettings44,45
+    { appStaticDir appStaticDir45,46
+    , appDatabaseConf appDatabaseConf47,48
+    , appRoot appRoot49,50
+    , appHost appHost52,53
+    , appPort appPort54,55
+    , appIpFromHeader appIpFromHeader56,57
+    , appDetailedRequestLogging appDetailedRequestLogging60,61
+    , appShouldLogAll appShouldLogAll62,63
+    , appReloadTemplates appReloadTemplates64,65
+    , appMutableStatic appMutableStatic66,67
+    , appSkipCombining appSkipCombining68,69
+    , appCopyright appCopyright72,73
+    , appAnalytics appAnalytics74,75
+    , appAuthDummyLogin appAuthDummyLogin77,78
+    , appGoogleOAuthClientId appGoogleOAuthClientId79,80
+    , appGoogleOAuthClientSecret appGoogleOAuthClientSecret80,81
+    , superUsers superUsers81,82
+    , appGitTag appGitTag82,83
+instance FromJSON FromJSON AppSettings85,86
+    parseJSON parseJSON86,87
+widgetFileSettings widgetFileSettings126,127
+combineSettings combineSettings130,131
+widgetFile widgetFile136,137
+configSettingsYmlBS configSettingsYmlBS143,144
+configSettingsYmlValue configSettingsYmlValue147,148
+compileTimeAppSettings compileTimeAppSettings152,153
+combineStylesheets combineStylesheets164,165
+combineScripts combineScripts169,170
+
+./src/Settings/StaticFiles.hs,56
+module Settings.StaticFiles Settings.StaticFiles19,20
+
+./src/Views/ArtistViews.hs,122
+module Views.ArtistViews Views.ArtistViews19,20
+artistEditForm artistEditForm27,28
+artistNewForm artistNewForm46,47
+
+./src/Views/CommonViews.hs,1483
+module Views.CommonViews Views.CommonViews18,19
+baseInputStyle baseInputStyle22,23
+codeInputStyle codeInputStyle25,26
+baseTextAreaStyle baseTextAreaStyle28,29
+codeTextAreaStyle codeTextAreaStyle31,32
+emptyRequiredInputField emptyRequiredInputField34,35
+requiredInputField requiredInputField37,38
+emptyOptionalInputField emptyOptionalInputField49,50
+optionalInputField optionalInputField52,53
+emptyRequiredCodeInputField emptyRequiredCodeInputField66,67
+requiredCodeInputField requiredCodeInputField69,70
+emptyOptionalCodeInputField emptyOptionalCodeInputField81,82
+optionalCodeInputField optionalCodeInputField84,85
+emptyOptionalImageFileField emptyOptionalImageFileField96,97
+optionalImageFileField optionalImageFileField99,100
+emptyOptionalFileField emptyOptionalFileField111,112
+optionalFileField optionalFileField114,115
+emptyRequiredTextareaField emptyRequiredTextareaField126,127
+requiredTextareaField requiredTextareaField129,130
+emptyRequiredCodeTextareaField emptyRequiredCodeTextareaField141,142
+requiredCodeTextareaField requiredCodeTextareaField144,145
+emptyOptionalTextareaField emptyOptionalTextareaField156,157
+optionalTextareaField optionalTextareaField159,160
+emptyOptionalCodeTextareaField emptyOptionalCodeTextareaField171,172
+optionalCodeTextareaField optionalCodeTextareaField174,175
+emptyRequiredPositiveIntField emptyRequiredPositiveIntField186,187
+requiredPositiveIntField requiredPositiveIntField189,190
+
+./src/Views/GenreViews.hs,116
+module Views.GenreViews Views.GenreViews19,20
+genreEditForm genreEditForm27,28
+genreNewForm genreNewForm46,47
+
+./src/Views/TabViews.hs,104
+module Views.TabViews Views.TabViews19,20
+tabEditForm tabEditForm26,27
+tabNewForm tabNewForm60,61
+
+./test/Handler/CommentSpec.hs,71
+module Handler.CommentSpec Handler.CommentSpec17,18
+spec spec22,23
+
+./test/Handler/CommonSpec.hs,69
+module Handler.CommonSpec Handler.CommonSpec15,16
+spec spec19,20
+
+./test/Handler/HomeSpec.hs,65
+module Handler.HomeSpec Handler.HomeSpec17,18
+spec spec21,22
+
+./test/Handler/ProfileSpec.hs,71
+module Handler.ProfileSpec Handler.ProfileSpec17,18
+spec spec21,22
+
+./test/Spec.hs,0
+
+./test/TestImport.hs,271
+module TestImportTestImport18,19
+runDB runDB42,43
+runDBWithApp runDBWithApp47,48
+runHandler runHandler54,55
+withApp withApp59,60
+wipeDB wipeDB73,74
+dropAllCollections dropAllCollections76,77
+authenticateAs authenticateAs84,85
+createUser createUser93,94

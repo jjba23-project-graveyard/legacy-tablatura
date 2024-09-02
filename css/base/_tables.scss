@@ -1,0 +1,74 @@
+// Copyright © 2022 Josep Bigorra
+//
+// This file is part of Tablatura.
+// Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+//   either version 3 of the License, or (at your option) any later version.
+//
+// Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+//   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+//
+// See the GNU General Public License for more details.
+// You should have received a copy of the GNU General Public License along with Foobar.
+// If not, see <https://www.gnu.org/licenses/>.
+
+@import 'defs';
+
+th {
+  font-weight: 600;
+}
+
+td,
+th {
+  border-bottom: (.06 * $em) solid var(--border-color);
+  padding: .825 * $em $em;
+  text-align: left;
+  vertical-align: top;
+}
+
+thead th {
+  border-bottom-width: .12 * $em;
+  padding-bottom: .35 * $em;
+}
+
+table {
+  display: table;
+  width: 100%;
+
+  @media all and (max-width: 1024px) {
+    display: none;
+  }
+
+  thead {
+    @media all and (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  tr {
+    border-bottom-width: .12 * $em;
+
+    th {
+      border-bottom-width: .12 * $em;
+    }
+
+    td,
+    th {
+      overflow: hidden;
+      padding: .3 * $em .2 * $em;
+
+      @media all and (max-width: 1024px) {
+        border: 0;
+        display: inline-block;
+      }
+    }
+
+    @media all and (max-width: 1024px) {
+      display: inline-block;
+      margin: .6 * $em 0;
+    }
+  }
+
+  @media all and (max-width: 1024px) {
+    display: inline-block;
+  }
+}

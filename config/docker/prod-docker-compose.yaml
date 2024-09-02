@@ -1,0 +1,81 @@
+# Copyright © 2022 Josep Bigorra
+#
+# This file is part of Tablatura.
+# Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+#   either version 3 of the License, or (at your option) any later version.
+#
+# Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+#   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#
+# See the GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License along with Foobar.
+# If not, see <https://www.gnu.org/licenses/>.
+
+version: "3.3"
+services:
+  #
+  # db.grantRolesToUser(
+  #"your_user",
+  #[
+  #{ role: "read", db: "your_db" }
+  #  ]
+  #)
+  tablatura_mongo:
+    container_name: "tablatura_mongo"
+    image: "docker.io/library/mongo:${MONGO_DB_VERSION}"
+    restart: always
+    environment:
+      - MONGO_DB_VERSION
+      - MONGO_INITDB_ROOT_USERNAME=${DATABASE_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${DATABASE_PASSWORD}
+      - MONGO_INITDB_DATABASE=tablatura
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_volume:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+    networks:
+      - tablatura_network
+  #
+  tablatura_proxy:
+    container_name: "tablatura_proxy"
+    restart: always
+    environment:
+      - TABLATURA_PROXY_VERSION
+    image: "europe-west4-docker.pkg.dev/tablatura/tablatura-docker-images/tablatura_proxy:${TABLATURA_PROXY_VERSION}"
+    #image: "tablatura_proxy:${TABLATURA_PROXY_VERSION}"
+    ports:
+      - "80:80"
+    depends_on:
+      - tablatura_backend
+      - tablatura_mongo
+    networks:
+      - tablatura_network
+  #
+  tablatura_backend:
+    container_name: "tablatura_backend"
+    restart: always
+    depends_on:
+      - tablatura_mongo
+    environment:
+      - TABLATURA_GIT_TAG
+      - TABLATURA_BACKEND_VERSION
+      - DATABASE_HOST
+      - DATABASE_USER
+      - DATABASE_PASSWORD
+      - YESOD_GOOGLE_OAUTH_CLIENT_ID
+      - YESOD_GOOGLE_OAUTH_CLIENT_SECRET
+    image: "europe-west4-docker.pkg.dev/tablatura/tablatura-docker-images/tablatura_backend:${TABLATURA_BACKEND_VERSION}"
+    #image: "tablatura_backend:${TABLATURA_BACKEND_VERSION}"
+    ports:
+      - "3000:3000"
+    networks:
+      - tablatura_network
+    volumes:
+      - backend_volume:/internal-applications/tablatura/config
+volumes:
+  mongo_volume:
+  backend_volume:
+networks:
+  tablatura_network:
+    driver: bridge

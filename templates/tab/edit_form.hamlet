@@ -1,0 +1,79 @@
+$# Copyright © 2022 Josep Bigorra
+$#
+$# This file is part of Tablatura.
+$# Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+$#   either version 3 of the License, or (at your option) any later version.
+$#
+$# Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+$#   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+$#
+$# See the GNU General Public License for more details.
+$# You should have received a copy of the GNU General Public License along with Foobar.
+$# If not, see <https://www.gnu.org/licenses/>.
+
+#{extra}
+<section>
+  <div .display-grid>
+    <div .margin-top-normal .display-grid>
+      <label .font-weight-bold>Key:
+      ^{fvInput tabKeyView}
+    <div .margin-top-normal .display-grid>
+      <label .font-weight-bold>Tuning:
+      ^{fvInput tabTuningView}
+    <div .margin-top-normal .display-grid>
+      <label .font-weight-bold>Image (album or related):
+      <details .margin-bottom-normal .cursor-pointer>
+        <summary>
+          <small .font-weight-bold>Requirements for image uploads !
+        <p>
+          If no image is submitted, any existing image will be unmodified.
+          Please ensure that the image you upload is of square dimensions, since it will be forcefully resized to 1:1 aspect ratio and 400x400 resolution.
+          The image will be converted to WebP format and Base64 and stored at Tablatura's database.
+      ^{fvInput tabImageView}
+    <div .margin-top-normal .display-grid>
+      <label .font-weight-bold>Year of creation:
+      ^{fvInput tabCreationYearView}
+
+    <div .margin-top-normal .display-grid>
+      <label .font-weight-bold>Name of the album:
+      ^{fvInput tabAlbumNameView}
+
+    <div .margin-top-normal .display-grid>
+      <label .font-weight-bold>Link to more info about the album:
+      ^{fvInput tabAlbumLinkView}
+      
+    <div .margin-top-normal .display-grid>
+      <label .font-weight-bold for="tabLegend">Musical legend in ASCII:
+      <details .margin-bottom-normal .cursor-pointer>
+        <summary>
+          <small .font-weight-bold>What is this ?
+        <p>
+          Multi-line text field. Please explain the symbols, abbreviations and conventions used in the musical contents in ASCII.
+      ^{fvInput legendView}
+    <div .margin-top-normal .display-grid>
+      <label .font-weight-bold for="tabDisplay">* Musical contents in ASCII:
+      ^{fvInput tabView}
+    <div .margin-top-normal .display-grid>
+     <label .font-weight-bold>Genres of the song:
+     <details .margin-bottom-normal .cursor-pointer>
+        <summary>
+          <small .font-weight-bold>What is this ?
+        <p>
+          Multi-line text field. Add all the genres the items belongs to, by identifier, one per line
+     ^{fvInput tabGenreView}
+    <div .margin-top-normal .display-grid>
+      <label .font-weight-bold>YouTube embed URL:
+      <details .margin-bottom-normal .cursor-pointer>
+        <summary>
+          <small .font-weight-bold>What is this ?
+        <p>
+          URL field. Go to YouTube and copy the so-called iframe embed, then take the src part of it, and paste that URL here.
+      ^{fvInput tabYouTubeEmbedURLView}
+    <div .margin-top-normal .display-grid>
+      <label .font-weight-bold>Spotify embed URL:
+      <details .margin-bottom-normal .cursor-pointer>
+        <summary>
+          <small .font-weight-bold>What is this ?
+        <p>
+          URL field. Go to Spotify and copy the so-called iframe embed, then take the src part of it, and paste that URL here.
+      ^{fvInput tabSpotifyEmbedURLView}

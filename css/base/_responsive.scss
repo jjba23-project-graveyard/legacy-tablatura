@@ -1,0 +1,148 @@
+// Copyright © 2022 Josep Bigorra
+//
+// This file is part of Tablatura.
+// Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+//   either version 3 of the License, or (at your option) any later version.
+//
+// Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+//   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+//
+// See the GNU General Public License for more details.
+// You should have received a copy of the GNU General Public License along with Foobar.
+// If not, see <https://www.gnu.org/licenses/>.
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 650px) {
+  body {
+    padding: $spacing 0;
+  }
+
+  article {
+    border: 0;
+    padding: $spacing;
+  }
+
+  header,
+  footer {
+    padding: $spacing;
+  }
+
+  textarea,
+  input,
+  select {
+    min-width: 0;
+  }
+
+  fieldset {
+    // The following line fixes fieldset overflow in webkit browsers.
+    // For further info see:
+    // http://stackoverflow.com/questions/17408815/fieldset-resizes-wrong-appears-to-have-unremovable-min-width-min-content/17863685#17863685
+    min-width: 0;
+
+    * {
+      flex-grow: 1;
+      page-break-before: auto;
+    }
+  }
+
+  section {
+    width: auto;
+  }
+
+  .font-size-tiny {
+    font-size: 0.8rem;
+  }
+
+  x:-moz-any-link {
+    // The following lines fixes fieldset overflow bug in Firefox browser.
+    // For further info, see:
+    // http://stackoverflow.com/questions/17408815/fieldset-resizes-wrong-appears-to-have-unremovable-min-width-min-content/17863685#17863685
+    // Changed the original `@-moz-document url-prefix` code to simpler
+    // `-moz-any-link` hack so W3C CSS validator will pass it.
+    display: table-cell;
+  }
+
+   .font-size-very-large {
+    font-size: xx-large;
+  }
+
+  .line-height-large {
+    line-height: 2em;
+  }
+
+  .card-grid-item {
+    max-width: 50%;
+    flex-shrink: 2; /*default 1*/
+    padding: 0.4em;
+  }
+
+  .resource-details-item {
+    max-width: 100%;
+  }
+
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 650px) {
+  .card-grid-item {
+    max-width: 33%;
+    flex-shrink: 2; /*default 1*/
+    padding: 0.8em;
+  }
+  .font-size-tiny {
+    font-size: 0.8rem;
+  }
+  .resource-details-item {
+    max-width: 100%;
+  }
+
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .card-grid-item {
+    max-width: 33%;
+    flex-shrink: 2; /*default 1*/
+    padding: 1.0em;
+
+  }
+
+  .font-size-tiny {
+    font-size: 0.8rem;
+  }
+
+  .resource-details-item {
+    max-width: 100%;
+  }
+
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .card-grid-item {
+    max-width: 25%;
+    flex-shrink: 2; /*default 1*/
+    padding: 1.2em;
+  }
+
+  .font-size-tiny {
+    font-size: 0.8rem;
+  }
+
+  .resource-details-item {
+    max-width: 100%;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .card-grid-item {
+    max-width: 20%;
+    flex-shrink: 2; /*default 1*/
+    padding: 1.4em;
+  }
+
+  .font-size-tiny {
+    font-size: 0.8rem;
+  }
+
+  .resource-details-item {
+    max-width: 100%;
+  }
+}

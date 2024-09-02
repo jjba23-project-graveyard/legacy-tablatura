@@ -1,0 +1,54 @@
+$# Copyright © 2022 Josep Bigorra
+$#
+$# This file is part of Tablatura.
+$# Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+$#   either version 3 of the License, or (at your option) any later version.
+$#
+$# Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+$#   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+$#
+$# See the GNU General Public License for more details.
+$# You should have received a copy of the GNU General Public License along with Foobar.
+$# If not, see <https://www.gnu.org/licenses/>.
+
+<section .sort-params-container .muted .flex-wrap-wrap .vertical-align-middle .align-items-center .justify-content-space-around>
+  <div>
+    <small>by genre:
+    <a href="?#{show GenreListSortBy}=#{show GenreAlphabetical}&#{show GenreListOrientation}=#{show Ascending}">
+      <small .link-color .font-weight-bold>A - Z
+    <small>&nbsp;|&nbsp;
+    <a href="?#{show GenreListSortBy}=#{show GenreAlphabetical}&#{show GenreListOrientation}=#{show Descending}">
+      <small .link-color .font-weight-bold>Z - A
+  
+  <div>
+    <small>by creation date:
+    <a href="?#{show GenreListSortBy}=#{show GenreChronological}&#{show GenreListOrientation}=#{show Ascending}">
+      <small .link-color .font-weight-bold>Old
+    <small>&nbsp;|&nbsp;
+    <a href="?#{show GenreListSortBy}=#{show GenreChronological}&#{show GenreListOrientation}=#{show Descending}">
+      <small .font-weight-bold .link-color>New
+
+<section>
+  <article .shadow-style-tw>
+    <div .card-grid-container>
+      $forall Genre name slug image imageType moreInfoLink description tabs artists createdAt lastEdited authorId approved  _ _ likes dislikes <- allGenres 
+        <div .card-grid-item .text-align-center>
+          <a href="@{(GenreR slug )}">
+            <div>
+              $maybe imgSrc <- image
+                $maybe imgType <- imageType
+                  <img .border-radius-tiny loading="lazy" src="data:#{imgType};base64, #{imgSrc}">
+                $nothing
+                  <img .border-radius-tiny loading="lazy" src="">
+              $nothing
+                <img .border-radius-tiny loading="lazy" src="">
+              
+              <h4>#{name}
+              <h6 .muted>#{length tabs} songs
+              $if (not approved)
+                <p .color-red>PENDING APPROVAL OF ADMINS!
+
+              $#<p>Last edited: #{show (epochToUTC lastEdited)}
+
+<script>
+    ^{importJsFile}

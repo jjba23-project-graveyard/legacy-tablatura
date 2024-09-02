@@ -1,0 +1,37 @@
+$# Copyright © 2022 Josep Bigorra
+$#
+$# This file is part of Tablatura.
+$# Tablatura is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+$#   either version 3 of the License, or (at your option) any later version.
+$#
+$# Tablatura is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+$#   without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+$#
+$# See the GNU General Public License for more details.
+$# You should have received a copy of the GNU General Public License along with Foobar.
+$# If not, see <https://www.gnu.org/licenses/>.
+
+<section>
+  <article .shadow-style-tw .text-align-center>
+    <h1>UI Labs
+    <p>Feel free to experiment with UI components, try to improve things, or innovate!
+    <div>
+      <label for="test1">TESTING LABEL
+      <input #test1>
+    <div .display-inline-flex .flex-wrap-wrap>
+      <div .color-palette-square style="background:var(--bg-color)">--bg-color
+      <div .color-palette-square style="background:var(--fg-color)">--fg-color
+      <div .color-palette-square style="background:var(--link-color)">--link-color
+      <div .color-palette-square style="background:var(--visited-link-color)">--visited-link-color
+      <div .color-palette-square style="background:var(--border-color)">--border-color
+      <div .color-palette-square style="background:var(--code-in-pre-color)">--code-in-pre-color
+      <div .color-palette-square style="background:var(--pre-border-color)">--pre-border-color
+      <div .color-palette-square style="background:var(--code-kbd-bg-color)">--code-kbd-bg-color
+      <div .color-palette-square style="background:var(--pre-bg-color)">--pre-bg-color
+      <div .color-palette-square style="background:var(--key-yellow)">--key-yellow
+      <div .color-palette-square style="background:var(--key-blue)">--key-blue
+      <div .color-palette-square style="background:var(--key-green)">--key-green
+      <div .color-palette-square style="background:var(--key-red)">--key-red
+      <div .color-palette-square style="background:var(--fg-muted-color)">--fg-muted-color
+      <div .color-palette-square style="background:var(--button-bg-color)">--button-bg-color
+      <div .color-palette-square style="background:var(--button-fg-color)">--button-fg-color

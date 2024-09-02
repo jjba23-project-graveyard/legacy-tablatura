@@ -1,0 +1,137 @@
+-- By default this file is used by `persistFileWith` in Model.hs (which is imported by Foundation.hs)
+-- Syntax for this file here: https://github.com/yesodweb/persistent/blob/master/docs/Persistent-entity-syntax.md
+-- also here https://hackage.haskell.org/package/persistent-2.14.0.3/docs/Database-Persist-Quasi.html
+
+
+User json
+    ident Text
+    password Text Maybe
+    UniqueUser ident
+    
+    deriving Typeable
+    deriving Show
+    deriving Eq
+
+ExtraTabDataSources json
+  youTubeEmbedURL Text Maybe
+  spotifyEmbedURL Text Maybe
+
+  deriving Eq
+  deriving Show
+
+TabSearchKey json
+  artists [Text]
+  song Text
+  version Int
+    
+  deriving Eq
+  deriving Show
+
+Tab json
+  pk TabSearchKey
+  artistNames [Text]
+  songName Text
+  content Text
+  legend Text Maybe
+  musicKey Text Maybe
+  image Text Maybe
+  imageType Text Maybe
+  tuning Text Maybe
+  genres [Text]
+  extraDataSources ExtraTabDataSources Maybe
+  createdAt Int
+  lastEdited Int
+  authorId Text
+  approved Bool
+  approvedBy Text Maybe
+  creationYear Text Maybe
+  viewCount Int Maybe
+  likes (Map Text Bool) Maybe
+  dislikes (Map Text Bool) Maybe
+  albumName Text Maybe
+  albumLink Text Maybe
+
+  UniqueFindKey pk 
+
+  deriving Eq
+  deriving Show
+
+Artist json
+  name Text
+  slug Text
+  image Text Maybe
+  imageType Text Maybe
+  moreInfoLink Text Maybe
+  description Text Maybe
+  tabs [TabSearchKey]
+  genres [Text]
+  createdAt Int
+  lastEdited Int
+  authorId Text
+  approved Bool
+  approvedBy Text Maybe
+  viewCount Int Maybe
+  likes (Map Text Bool) Maybe
+  dislikes (Map Text Bool) Maybe
+
+  deriving Eq
+  deriving Show
+
+Genre json
+  name Text
+  slug Text
+  image Text Maybe
+  imageType Text Maybe
+  moreInfoLink Text Maybe
+  description Text Maybe
+  tabs [TabSearchKey]
+  artists [Text]
+  createdAt Int
+  lastEdited Int
+  authorId Text
+  approved Bool
+  approvedBy Text Maybe
+  viewCount Int Maybe
+  likes (Map Text Bool) Maybe
+  dislikes (Map Text Bool) Maybe
+  
+  deriving Eq
+  deriving Show
+ 
+
+BlogPage json
+  title Text
+  slug Text
+  smallDescription Text Maybe
+  content Text
+  categories [Text]
+  createdAt Int
+  lastEdited Int
+  authorId Text 
+  approved Bool 
+  approvedBy Text Maybe
+  viewCount Int Maybe
+  likes (Map Text Bool) Maybe
+  dislikes (Map Text Bool) Maybe
+  
+  deriving Eq
+  deriving Show
+
+BlogPageCategory json
+  name Text
+  slug Text
+  image Text Maybe
+  imageType Text Maybe
+  pages [Text]
+  createdAt Int 
+  lastEdited Int 
+  authorId Text
+  approved Bool 
+  approvedBy Text Maybe
+  viewCount Int Maybe
+  likes (Map Text Bool) Maybe
+  dislikes (Map Text Bool) Maybe
+  
+  deriving Eq
+  deriving Show
+
